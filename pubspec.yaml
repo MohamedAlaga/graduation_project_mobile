@@ -38,6 +38,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ^1.1.0
   awesome_dialog: ^3.2.0
+  bloc: any
+  flutter_bloc: any
+  get: any
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_test:
