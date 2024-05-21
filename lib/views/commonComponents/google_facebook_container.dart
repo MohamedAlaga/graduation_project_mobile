@@ -1,4 +1,4 @@
-import 'package:abkar/view/commonComponents/core/utils/constants.dart';
+import 'package:aabkr/views/commonComponents/core/utils/constants.dart';
 import 'core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'core/utils/size_config.dart';

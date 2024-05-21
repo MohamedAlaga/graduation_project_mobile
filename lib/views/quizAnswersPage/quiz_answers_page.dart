@@ -1,6 +1,6 @@
-import 'package:abkar/controller/blocs/quiz_cubit/quiz_cubit.dart';
-import 'package:abkar/view/commonComponents/core/utils/constants.dart';
-import 'package:abkar/view/quizAnswersPage/components/quiz_answers_page_app_bar.dart';
+import 'package:aabkr/controllers/blocs/quiz_cubit/quiz_cubit.dart';
+import 'package:aabkr/views/commonComponents/core/utils/constants.dart';
+import 'package:aabkr/views/quizAnswersPage/components/quiz_answers_page_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../commonComponents/common_smaller_button.dart';

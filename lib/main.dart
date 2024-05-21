@@ -1,8 +1,21 @@
+import 'package:aabkr/controllers/blocs/quiz_cubit/quiz_cubit.dart';
+import 'package:aabkr/views/page2/page2_screen.dart';
+import 'package:aabkr/views/page3/page3_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aabkr/views/page25.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+ runApp(
+    MultiProvider(
+      providers: [
+        BlocProvider(create: (context) => QuizCubit()),
+        // Add other providers here
+      ],
+      child: MyApp(),
+    ),
+  );
 } 
 
 class MyApp extends StatelessWidget {
@@ -14,6 +27,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: Page25(token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzE1ODM4NzkyLCJleHAiOjE3MTU4NDIzOTIsIm5iZiI6MTcxNTgzODc5MiwianRpIjoiR3V2Q1k5QWtraXFhcUpxWSIsInN1YiI6IjYiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.70rN5Z1_KMIurvYETaEaUOsNuZLZe4B-vJryqySJtUQ", )    );
+      home: const Page3() );
   }
 }

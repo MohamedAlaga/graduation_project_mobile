@@ -1,5 +1,5 @@
-import 'package:abkar/view/commonComponents/core/utils/size_config.dart';
-import 'package:abkar/view/page27/page27_screen.dart';
+import 'package:aabkr/views/commonComponents/core/utils/size_config.dart';
+import 'package:aabkr/views/page27/page27_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import '../../../model/quiz_model.dart';
-import '../../../view/commonComponents/core/utils/constants.dart';
+import '../../../views/commonComponents/core/utils/constants.dart';
 
 part 'quiz_state.dart';
 

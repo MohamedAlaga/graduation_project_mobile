@@ -1,6 +1,6 @@
-import 'package:abkar/view/commonComponents/common_button.dart';
-import 'package:abkar/view/commonComponents/core/utils/constants.dart';
-import 'package:abkar/view/commonComponents/galaxy_text.dart';
+import 'package:aabkr/views/commonComponents/common_button.dart';
+import 'package:aabkr/views/commonComponents/core/utils/constants.dart';
+import 'package:aabkr/views/commonComponents/galaxy_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../commonComponents/core/utils/size_config.dart';
