@@ -26,12 +26,12 @@ class Page7 extends StatelessWidget {
               left: 75,
               child: Column(crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  GalaxyText(
+                  const GalaxyText(
                     fontSize: 48,
                     text: 'اعطي الهاتف ',
                   ),
                   SizedBox(height: SizeConfig.screenHeight!*0.08,),
-                  GalaxyText(fontSize: 48, text: 'لوالديك')
+                  const GalaxyText(fontSize: 48, text: 'لوالديك')
                 ],
               )),
           Positioned(
@@ -50,9 +50,9 @@ class Page7 extends StatelessWidget {
                 children: [
                  GestureDetector(
                       onTap: () {  },
-                      child: OmnesText(text: ' تــــســــــجـــيــــل الـــدخــــول',color:mainGreen)),
+                      child: const OmnesText(text: ' تــــســــــجـــيــــل الـــدخــــول',color:mainGreen)),
                   const SizedBox(width: 5,),
-                  OmnesText(text: ' لديك حساب ؟',color: Colors.white)
+                  const OmnesText(text: ' لديك حساب ؟',color: Colors.white)
                 ],
               )),
         ],

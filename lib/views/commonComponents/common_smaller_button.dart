@@ -2,9 +2,9 @@ import 'core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'core/utils/size_config.dart';
 class CommonSmallerButton extends StatelessWidget {
-  String text;
+  final String text;
   var fun;
-  Color buttonColor;
+  final Color buttonColor;
   CommonSmallerButton ( {required this.buttonColor,
     this.fun,
     required this.text,

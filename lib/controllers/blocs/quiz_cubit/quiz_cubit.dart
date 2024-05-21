@@ -1,10 +1,6 @@
-import 'dart:convert';
-import 'dart:ui';
-import 'package:bloc/bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 import '../../../model/quiz_model.dart';
 import '../../../views/commonComponents/core/utils/constants.dart';
 
@@ -36,7 +32,6 @@ class QuizCubit extends Cubit<QuizState> {
       },
     );
     if (testData.statusCode == 200) {
-      print('Response Body: ${testData.body}');
       emit(GetTestDataSuccessState());
     } else {
       emit(GetTestDataErrorState());

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'core/utils/styles.dart';
 
 class CommonButton extends StatelessWidget {
-  String text;
+  final String text;
   var fun;
-  Color buttonColor;
+  final Color buttonColor;
 
   CommonButton(
       {required this.buttonColor,

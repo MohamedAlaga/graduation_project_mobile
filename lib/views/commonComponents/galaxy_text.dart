@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 class GalaxyText extends StatelessWidget {
-  String text;
-  double fontSize ;
-   GalaxyText({required this.fontSize,required this.text,super.key});
+  final String text;
+  final double fontSize ;
+  const GalaxyText({required this.fontSize,required this.text,super.key});
 
   @override
   Widget build(BuildContext context) {

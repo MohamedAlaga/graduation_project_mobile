@@ -32,7 +32,7 @@ class Page3 extends StatelessWidget {
               key: cubit.formKey,
               child: Stack(
                 children: [
-                  Positioned(
+                  const Positioned(
                       top: 38,
                       right: 90,
                       left: 89,
@@ -44,12 +44,12 @@ class Page3 extends StatelessWidget {
                       top: 78,
                       right: 58,
                       left: 58,
-                      child: SvgPicture.asset('assets/images/yellowLogin.svg')),
+                      child: SvgPicture.asset('assets/pics/yellowLogin.svg')),
                   const Positioned(
                       top: 108,
                       right: 69,
                       left: 97,
-                      child: Image(image: AssetImage('assets/images/boy.png'))),
+                      child: Image(image: AssetImage('assets/pics/boy.png'))),
                   Positioned(
                       top: 290,
                       right: 16,
@@ -91,7 +91,7 @@ class Page3 extends StatelessWidget {
                             Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => Page6(),
+                                  builder: (context) => const Page6(),
                                 ),
                                 (route) => false);
                           },
@@ -105,12 +105,12 @@ class Page3 extends StatelessWidget {
                         children: [
                           GestureDetector(
                               onTap: () {},
-                              child: OmnesText(
+                              child: const OmnesText(
                                   text: ' انشاء حساب جديد', color: mainGreen)),
                           const SizedBox(
                             width: 5,
                           ),
-                          OmnesText(
+                          const OmnesText(
                               text: ' ليس لديك حساب ؟ ', color: Colors.white)
                         ],
                       )),
@@ -125,11 +125,11 @@ class Page3 extends StatelessWidget {
                         children: [
                           GoogleFacebookContainer(
                             text: 'فيسبوك',
-                            logo: 'assets/images/facebook.png',
+                            logo: 'assets/pics/facebook.png',
                           ),
                           GoogleFacebookContainer(
                             text: 'جــــوجـل',
-                            logo: 'assets/images/google.png',
+                            logo: 'assets/pics/google.png',
                           ),
                         ],
                       )),

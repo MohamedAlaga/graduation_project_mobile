@@ -6,7 +6,7 @@ import '../../commonComponents/core/utils/size_config.dart';
 import '../../commonComponents/galaxy_text.dart';
 AppBar quizAppBar() {
   return AppBar(toolbarHeight: 55,
-    title: Center(child: Center(child: GalaxyText(fontSize: 32, text: 'لا  تتوتر'))),
+    title: const Center(child: Center(child: GalaxyText(fontSize: 32, text: 'لا  تتوتر'))),
     backgroundColor: mainPageColor,
     leadingWidth: 50,
     elevation: 0,

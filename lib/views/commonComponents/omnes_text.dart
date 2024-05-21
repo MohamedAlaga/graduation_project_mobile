@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 class OmnesText extends StatelessWidget {
-  String text;
-  Color color ;
+  final String text;
+  final Color color ;
 
- OmnesText({required this.color,required this.text,super.key});
+ const OmnesText({required this.color,required this.text,super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class OmnesText extends StatelessWidget {
             text,
             style: TextStyle(
               fontSize: 20,
-              fontFamily: 'Omnes Arabic',
+              fontFamily: 'OMNES-ARABIC',
               fontWeight: FontWeight.w600,
              // height: 0.06,
               letterSpacing: -0.41,
@@ -36,7 +36,7 @@ class OmnesText extends StatelessWidget {
           Text(
             text,
             style: TextStyle(fontSize: 20, color: color,
-              fontFamily: 'Omnes Arabic',
+              fontFamily: 'OMNES-ARABIC',
               fontWeight: FontWeight.w600,
             // height: 0.06,
               letterSpacing: -0.41,

@@ -11,9 +11,8 @@ void main() {
     MultiProvider(
       providers: [
         BlocProvider(create: (context) => QuizCubit()),
-        // Add other providers here
       ],
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 } 

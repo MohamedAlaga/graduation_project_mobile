@@ -18,7 +18,7 @@ class Page6 extends StatelessWidget {
       body: SafeArea(
           child: Stack(
             children: [
-              Positioned(
+              const Positioned(
                 top: 54,
                 right: 44,
                 left: 44,

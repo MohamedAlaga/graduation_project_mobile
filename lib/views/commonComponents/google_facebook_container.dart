@@ -5,7 +5,7 @@ import 'core/utils/size_config.dart';
 class GoogleFacebookContainer extends StatelessWidget {
   String text;
   String logo ;
-  var fun;
+  var fun; 
    GoogleFacebookContainer({required this.logo,required this.text,this.fun,super.key});
 
   @override

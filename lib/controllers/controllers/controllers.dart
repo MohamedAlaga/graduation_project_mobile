@@ -23,9 +23,7 @@ loginController(String email, String password) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('email', email); // Save email
     prefs.setString('token', responseBody['access_token']); // Save token
-    print('Login successful');
   } else {
-    print(responseBody['error']);
     return responseBody['error'];
   }
 }
@@ -47,13 +45,10 @@ Future<void> loginWithGoogle(String token) async {
     if (response.statusCode == 200) {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setString('googleToken', token); // Save Google token
-      print('Logged in successfully');
-      print(response.body);
     } else {
-      print('Failed to login. Status code: ${response.statusCode}');
     }
   } catch (error) {
-    print('Error: $error');
+    throw Exception('Error: $error');
   }
 }
 
@@ -74,13 +69,10 @@ Future<void> loginWithFacebook(String token) async {
     if (response.statusCode == 200) {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setString('facebookToken', token); // Save Facebook token
-      print('Logged in successfully');
-      print(response.body);
     } else {
-      print('Failed to login. Status code: ${response.statusCode}');
     }
   } catch (error) {
-    print('Error: $error');
+    throw Exception('Error: $error');
   }
 }
 
@@ -111,14 +103,11 @@ Future<String> resetPassword(
     ).timeout(const Duration(seconds: 10));
     var responseBody = jsonDecode(response.body);
     if (response.statusCode == 200) {
-      print(responseBody['message']);
       return responseBody['message'];
     } else {
-      print(responseBody['error']);
       return responseBody['error'];
     }
   } catch (e) {
-    print('Error occurred: $e');
     return 'Error occurred: $e';
   }
 }

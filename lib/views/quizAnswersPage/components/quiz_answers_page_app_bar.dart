@@ -6,9 +6,9 @@ import '../../commonComponents/core/utils/styles.dart';
 import '../../commonComponents/galaxy_text.dart';
 AppBar quizAnswersAppBar() {
   return AppBar(toolbarHeight: 55,
-    title: Center(child: Row(
+    title: const Center(child: Row(
       children: [
-        const SizedBox(width: 73,),
+        SizedBox(width: 73,),
         GalaxyText(fontSize: 32, text: 'اجاباتك'),
       ],
     )),

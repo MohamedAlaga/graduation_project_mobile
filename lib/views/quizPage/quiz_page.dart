@@ -9,6 +9,7 @@ import '../quizAnswersPage/quiz_answers_page.dart';
 import 'components/quiz_page_app_bar.dart';
 
 class QuizPage extends StatelessWidget {
+  const QuizPage({super.key});
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);

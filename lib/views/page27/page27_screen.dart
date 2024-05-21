@@ -15,7 +15,7 @@ class Page27 extends StatelessWidget {
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: GalaxyText(fontSize: 32, text: 'شهادة  المستوى')),
+        title: const Center(child: GalaxyText(fontSize: 32, text: 'شهادة  المستوى')),
         backgroundColor: Colors.transparent,
         leadingWidth: 50,
         centerTitle:true ,
@@ -76,7 +76,7 @@ class Page27 extends StatelessWidget {
                 right: 24,
                 left: 22,
                 child: CommonButton(fun:(){
-                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder:(context) => QuizPage(),), (route) => false);
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder:(context) => const QuizPage(),), (route) => false);
                 },
                     buttonColor: const Color(0xff1fcc7b), text: 'انتقل الي المستوى الثاني')),
           ],
