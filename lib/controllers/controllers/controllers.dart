@@ -1,33 +1,7 @@
 import 'dart:convert';
+import 'package:aabkr/env_globals.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-
-loginController(String email, String password) async {
-  var response = await http.post(
-    Uri.parse(
-      'http://127.0.0.1/api/login',
-    ),
-    body: jsonEncode(<String, String>{'email': email, 'password': password}),
-    headers: <String, String>{
-      'User-Agent': 'mobileApp',
-      'Accept': '*/*',
-      'Accept-Encoding': 'gzip, deflate, br',
-      'Connection': 'keep-alive',
-      'Content-Type': 'application/json',
-      'host': "127.0.0.1:8000"
-    },
-  ).timeout(const Duration(seconds: 10));
-  var responseBody = jsonDecode(response.body);
-
-  if (responseBody['access_token'] != null) {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString('email', email); // Save email
-    prefs.setString('token', responseBody['access_token']); // Save token
-  } else {
-    return responseBody['error'];
-  }
-}
-
 
 Future<void> loginWithGoogle(String token) async {
   try {

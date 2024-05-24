@@ -21,7 +21,7 @@ class Page2 extends StatelessWidget {
                 top: 128,
                 right: 42,
                 left: 42,
-                child: SvgPicture.asset('assets/images/yellowAge.svg')),
+                child: SvgPicture.asset('assets/pics/yellowAge.svg')),
             const Positioned(
                 top: 218,
                 right: 102,

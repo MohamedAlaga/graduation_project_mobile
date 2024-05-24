@@ -1,0 +1,3 @@
+handle logout on page 25 //done 
+handle delete user on page 25 
+change api uri on controllers to use domainName variable

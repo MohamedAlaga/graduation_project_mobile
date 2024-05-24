@@ -19,7 +19,7 @@ class Page7 extends StatelessWidget {
           Positioned(top: 126,
               right: 29,
               left: 39,
-              child: SvgPicture.asset('assets/images/yellowParents.svg')),
+              child: SvgPicture.asset('assets/pics/yellowParents.svg')),
           Positioned(
               top: 210,
               right: 66,

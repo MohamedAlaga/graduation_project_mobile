@@ -1,5 +1,8 @@
 import 'dart:convert';
 import 'package:aabkr/controllers/handle_user_data_update.dart';
+import 'package:aabkr/controllers/logout_controller.dart';
+import 'package:aabkr/views/page2/page2_screen.dart';
+import 'package:aabkr/views/page3/page3_screen.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:aabkr/controllers/get_user_data.dart';
 import 'package:aabkr/views/components/common/back_button.dart';
@@ -9,6 +12,8 @@ import 'package:aabkr/views/components/common/main_text_field.dart';
 import 'package:aabkr/views/components/common/waved_line.dart';
 import 'package:aabkr/views/components/settings/circular_btn_with_txt.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Page25 extends StatelessWidget {
   Page25({super.key, required this.token});
@@ -90,11 +95,12 @@ class Page25 extends StatelessWidget {
                                     title: " كلمة المرور الجديده",
                                     txtcontroller: passController,
                                     isPass: true),
-                              ),Padding(
+                              ),
+                              Padding(
                                 padding: const EdgeInsets.only(
                                     top: 4.0, bottom: 4.0),
                                 child: MainTextField(
-                                    title: "تأكيد كلمة المرور" ,
+                                    title: "تأكيد كلمة المرور",
                                     txtcontroller: confirmPassController,
                                     isPass: true),
                               ),
@@ -117,22 +123,23 @@ class Page25 extends StatelessWidget {
                                       title: "الغاء",
                                       bcolor: const Color(0xFFF9295A),
                                       onpress: () {
-                                        Navigator.pop(context);
+                                        Navigator.maybePop(context);
                                       },
                                     ),
                                     MainButton(
                                       title: "حفظ",
-                                      onpress: () async 
-                                      {var update = await handleUserDataUpdate(
-                                          nameController.text,
-                                          lNameController.text,
-                                          ageController.text,
-                                          emailController.text,
-                                          passController.text,
-                                          confirmPassController.text,
-                                          phoneController.text,
-                                          token);
-                                        if(update["success"] == false && context.mounted){
+                                      onpress: () async {
+                                        var update = await handleUserDataUpdate(
+                                            nameController.text,
+                                            lNameController.text,
+                                            ageController.text,
+                                            emailController.text,
+                                            passController.text,
+                                            confirmPassController.text,
+                                            phoneController.text,
+                                            token);
+                                        if (update["success"] == false &&
+                                            context.mounted) {
                                           AwesomeDialog(
                                             context: context,
                                             dialogType: DialogType.error,
@@ -144,8 +151,8 @@ class Page25 extends StatelessWidget {
                                             },
                                           ).show();
                                           return;
-                                        }
-                                        else if (update["success"] == true && context.mounted){
+                                        } else if (update["success"] == true &&
+                                            context.mounted) {
                                           AwesomeDialog(
                                             context: context,
                                             dialogType: DialogType.success,
@@ -156,9 +163,7 @@ class Page25 extends StatelessWidget {
                                               Navigator.maybePop(context);
                                             },
                                           ).show();
-
-                                        }
-                                        else if (context.mounted) {
+                                        } else if (context.mounted) {
                                           AwesomeDialog(
                                             context: context,
                                             dialogType: DialogType.error,
@@ -176,16 +181,42 @@ class Page25 extends StatelessWidget {
                               const SizedBox(
                                 height: 40,
                               ),
-                              const Row(
+                              Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   CircularBtnWithTxt(
-                                      path: "assets/pics/trash.svg",
-                                      txt: "حذف الحساب"),
+                                    path: "assets/pics/trash.svg",
+                                    txt: "حذف الحساب",
+                                  ),
                                   CircularBtnWithTxt(
-                                      path: "assets/pics/logout.svg",
-                                      txt: "تسجيل الخروج"),
+                                    path: "assets/pics/logout.svg",
+                                    txt: "تسجيل الخروج",
+                                    onpress: () async {
+                                      SharedPreferences prefs;
+                                      prefs =
+                                          await SharedPreferences.getInstance();
+                                      var logout = await logoutController(
+                                          prefs.getString('token').toString());
+                                      if (logout == 1) {
+                                        Navigator.pushAndRemoveUntil(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const Page3()),
+                                            (route) => false);
+                                      } else {
+                                        AwesomeDialog(
+                                          context: context,
+                                          dialogType: DialogType.error,
+                                          animType: AnimType.topSlide,
+                                          title: "حدث خطأ ما",
+                                          btnOkText: "حسنا",
+                                          btnOkOnPress: () {},
+                                        ).show();
+                                      }
+                                    },
+                                  ),
                                 ],
                               )
                             ],

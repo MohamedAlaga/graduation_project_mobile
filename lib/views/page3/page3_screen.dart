@@ -1,4 +1,5 @@
 import 'package:aabkr/controllers/blocs/quiz_cubit/quiz_cubit.dart';
+import 'package:aabkr/controllers/login_controller.dart';
 import 'package:aabkr/views/commonComponents/common_button.dart';
 import 'package:aabkr/views/commonComponents/common_text_field.dart';
 import 'package:aabkr/views/commonComponents/core/utils/constants.dart';
@@ -6,12 +7,14 @@ import 'package:aabkr/views/commonComponents/divider.dart';
 import 'package:aabkr/views/commonComponents/galaxy_text.dart';
 import 'package:aabkr/views/commonComponents/google_facebook_container.dart';
 import 'package:aabkr/views/commonComponents/omnes_text.dart';
+import 'package:aabkr/views/page25.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../commonComponents/core/utils/size_config.dart';
 import '../commonComponents/core/utils/styles.dart';
-import '../page6/page6_screen.dart';
 
 class Page3 extends StatelessWidget {
   const Page3({super.key});
@@ -54,25 +57,30 @@ class Page3 extends StatelessWidget {
                       top: 290,
                       right: 16,
                       left: 16,
-                      child: CommonTextField(title: 'البريد الالكتروني',
+                      child: CommonTextField(
+                          title: 'البريد الالكتروني',
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return ' البريد الالكتروني مطلوب' ;}
-                            else if (!value.endsWith('.com')) {
-                              return 'البريد الالكتروني يجب ان ينتهي ب .com';}
-                          }, controller:cubit.emailController
-                      )),
+                              return ' البريد الالكتروني مطلوب';
+                            } else if (!value.endsWith('.com')) {
+                              return 'البريد الالكتروني يجب ان ينتهي ب .com';
+                            }
+                          },
+                          controller: cubit.emailController)),
                   Positioned(
                       top: 360,
                       right: 16,
                       left: 16,
-                      child: CommonTextField(title: 'كلمة المرور',
+                      child: CommonTextField(
+                          title: 'كلمة المرور',
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'كلمة المرور مطلوبة';}
+                              return 'كلمة المرور مطلوبة';
+                            }
                             //else if (value.length < 8) {
                             //  return 'password must be 8 characters or more';}
-                          }, controller: cubit.passwordController)),
+                          },
+                          controller: cubit.passwordController)),
                   const Positioned(
                     top: 450,
                     right: 14,
@@ -87,13 +95,43 @@ class Page3 extends StatelessWidget {
                       right: 16,
                       left: 16,
                       child: CommonButton(
-                          fun: () {
-                            Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const Page6(),
-                                ),
-                                (route) => false);
+                          fun: () async {
+                            SharedPreferences prefs;
+                            prefs = await SharedPreferences.getInstance();
+                            print( "${cubit.emailController.text}\n${cubit.passwordController.text}");
+                            var login = await loginController(cubit.emailController.text, cubit.passwordController.text);
+                            if (login == 1) {
+                              Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Page25(
+                                        token: prefs
+                                            .getString('token')
+                                            .toString()),
+                                  ),
+                                  (route) => false);
+                            } else if (login == 0)
+                            {
+                              AwesomeDialog(
+                                            context: context,
+                                            dialogType: DialogType.error,
+                                            animType: AnimType.topSlide,
+                                            title: "بيانات المستخدم غير صحيحة",
+                                            btnOkText: "حسنا",
+                                            btnOkOnPress: (){}
+                                          ).show();
+                            } else
+                            {
+                              print(login.toString());
+                              AwesomeDialog(
+                                            context: context,
+                                            dialogType: DialogType.error,
+                                            animType: AnimType.topSlide,
+                                            title: "حدث خطأ ما، يرجى المحاولة مرة أخرى",
+                                            btnOkText: "حسنا",
+                                            btnOkOnPress: (){}
+                                          ).show();
+                            }
                           },
                           buttonColor: mainGreen,
                           text: 'تسجيل الدخول')),

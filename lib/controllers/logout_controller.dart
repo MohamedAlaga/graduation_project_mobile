@@ -15,39 +15,40 @@ import 'package:shared_preferences/shared_preferences.dart';
 ///   - A JSON string containing an access token if login is successful.
 ///   - A JSON string containing an error message if login fails.
 
-loginController(String email, String password) async {
+logoutController(String token) async {
   SharedPreferences prefs;
   prefs = await SharedPreferences.getInstance();
-  prefs.remove('token');
-  if(email.isNotEmpty && password.isNotEmpty){
+  if(token.isNotEmpty){
   try {
     var response = await http.post(
       Uri.parse(
-        '$domainName/api/login',
+        '$domainName/api/logout',
       ),
-      body: jsonEncode(<String, String>{'email': email, 'password': password}),
       headers: <String, String>{
         'User-Agent': 'mobileApp',
         'Accept': '*/*',
         'Accept-Encoding': 'gzip, deflate, br',
         'Connection': 'keep-alive',
         'Content-Type': 'application/json',
-        'host': "10.2.2.2:8000"
+        'host': "10.2.2.2:8000",
+        'Authorization': 'Bearer $token',
       },
     );
+    if (response.statusCode == 200) {
     var responseBody = jsonDecode(response.body);
-    if (responseBody['access_token'] != null) {
-      prefs.setString('token', responseBody['access_token']);
+    if (responseBody['message'] != null) {
+        prefs.remove('token');
       return 1;
-    } else if (responseBody['error'] == 'Unauthorized') {
+    }  else {
       return 0;
+    }
     } else {
-      return -1;
+      return 0;
     }
   } catch (e) {
-    return -1;
+    return 0;
   }
   } else {
-    return -1;
+    return 0;
   }
 }

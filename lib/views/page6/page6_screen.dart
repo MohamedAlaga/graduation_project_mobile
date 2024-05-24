@@ -30,11 +30,11 @@ class Page6 extends StatelessWidget {
                top: 92,
                right: 58,
                left: 58,
-               child: SvgPicture.asset('assets/images/blueResetPass.svg')),
+               child: SvgPicture.asset('assets/pics/blueResetPass.svg')),
               const Positioned(top: 131,
                   right: 91,
                   left: 87,
-                  child: Image(image: AssetImage('assets/images/Face with peeking eye.png'))),
+                  child: Image(image: AssetImage('assets/pics/Face with peeking eye.png'))),
               Positioned(
                   top: 361,
                   right: 16,

@@ -25,11 +25,11 @@ class Page27 extends StatelessWidget {
         ],
         leading:Center(
           child: InkWell(onTap: (){},
-              child: SvgPicture.asset('assets/images/arrow_back.svg',fit: BoxFit.scaleDown,)
+              child: SvgPicture.asset('assets/pics/arrow_back.svg',fit: BoxFit.scaleDown,)
           ),
         ) ,
         bottom: PreferredSize(preferredSize:  Size.fromHeight(SizeConfig.screenHeight!*0.04),
-            child: SvgPicture.asset('assets/images/appBar.svg')),
+            child: SvgPicture.asset('assets/pics/appBar.svg')),
       ),
       backgroundColor: mainPageColor,
       body: SafeArea(
@@ -49,7 +49,7 @@ class Page27 extends StatelessWidget {
             Positioned(top: 90,
                 right: 16,
                 left: 16,
-                child: SvgPicture.asset('assets/images/certificate.svg')),
+                child: SvgPicture.asset('assets/pics/certificate.svg')),
             const  Positioned(
               top: 182,
               right: 70,

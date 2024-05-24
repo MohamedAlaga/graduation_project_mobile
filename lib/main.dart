@@ -2,7 +2,6 @@ import 'package:aabkr/controllers/blocs/quiz_cubit/quiz_cubit.dart';
 import 'package:aabkr/views/page2/page2_screen.dart';
 import 'package:aabkr/views/page3/page3_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:aabkr/views/page25.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -26,6 +25,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const Page3() );
+      home: const Page2() );
   }
 }
