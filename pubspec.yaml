@@ -43,6 +43,8 @@ dependencies:
   get: any
   shared_preferences: ^2.2.3
   provider: ^6.1.2
+  youtube_player_flutter: ^9.0.1
+  percent_indicator: ^4.2.3
 
 dev_dependencies:
   flutter_test:
@@ -61,6 +63,9 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   fonts:
+    - family: AlaTypoo
+      fonts:
+        - asset: assets/fonts/AlaTypooMedium.ttf
     - family: AA-GALAXY
       fonts:
         - asset: assets/fonts/AA-GALAXY.otf
@@ -68,8 +73,10 @@ flutter:
       fonts:
         - asset: assets/fonts/OMNES-ARABIC.ttf
         - asset: assets/fonts/OMNES-ARABIC-BOLD.ttf
-          weight: 600
+          weight: 700
         - asset: assets/fonts/OMNES-ARABIC-SEMI-BOLD.ttf
+          weight: 600
+        - asset: assets/fonts/OMNES-ARABIC-MEDIUM.ttf
           weight: 500
     - family: ARCHIVO
       fonts:
