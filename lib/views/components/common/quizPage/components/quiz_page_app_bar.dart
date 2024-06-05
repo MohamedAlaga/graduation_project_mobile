@@ -1,9 +1,9 @@
+import 'package:aabkr/views/commonComponents/core/utils/constants.dart';
+import 'package:aabkr/views/commonComponents/core/utils/size_config.dart';
+import 'package:aabkr/views/commonComponents/galaxy_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../commonComponents/core/utils/constants.dart';
-import '../../commonComponents/core/utils/size_config.dart';
-import '../../commonComponents/galaxy_text.dart';
 AppBar quizAppBar() {
   return AppBar(toolbarHeight: 55,
     title: const Center(child: Center(child: GalaxyText(fontSize: 32, text: 'لا  تتوتر'))),

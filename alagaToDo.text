@@ -1,3 +1,5 @@
 handle logout on page 25 //done 
 handle delete user on page 25 
 change api uri on controllers to use domainName variable
+button "التالي" in video page should go to the article
+better logog for splash screen

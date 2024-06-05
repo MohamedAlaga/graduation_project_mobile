@@ -5,19 +5,19 @@ import 'package:aabkr/views/components/common/common_text.dart';
 import 'package:aabkr/views/data.dart';
 import 'package:flutter/material.dart';
 
-class videoCard extends StatelessWidget {
+class VideoCard extends StatelessWidget {
   final Video video;
   final int vindex;
 
-  const videoCard({Key? key, required this.video, required this.vindex})
+  const VideoCard({Key? key, required this.video, required this.vindex})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          height: 10,
+        const SizedBox(
+          height: 16,
         ),
         GestureDetector(
           onTap: () {
@@ -52,14 +52,14 @@ class videoCard extends StatelessWidget {
                         width: double.infinity,
                         height: 240,
                         decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 31, 204, 123),
+                            color: const Color.fromARGB(255, 31, 204, 123),
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(
                                 color: Colors.black,
                                 style: BorderStyle.solid,
                                 width: 2),
-                            boxShadow: [
-                              BoxShadow(
+                            boxShadow: const [
+                               BoxShadow(
                                 offset: Offset(0, 4),
                                 color: Colors.black,
                               ),
@@ -67,28 +67,31 @@ class videoCard extends StatelessWidget {
                         child: Ink(
                           child: Column(
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 height: 18,
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: Colors.black,
-                                    width: 2.0,
+                              Padding(
+                                padding: const EdgeInsets.only(left: 16,right: 16),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: Colors.black,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(16.0),
                                   ),
-                                  borderRadius: BorderRadius.circular(16.0),
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(16.0),
-                                  child: Image.network(
-                                    video.thumbnailUrl,
-                                    height: 166,
-                                    width: 350,
-                                    fit: BoxFit.cover,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                    child: Image.network(
+                                      video.thumbnailUrl,
+                                      width: double.infinity,
+                                      height: 160,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               C_Text(
@@ -119,14 +122,14 @@ class videoCard extends StatelessWidget {
                               width: 2.0,
                             ),
                             shape: BoxShape.circle,
-                            color: Color.fromARGB(255, 255, 210, 0),
-                            boxShadow: [
+                            color: const Color.fromARGB(255, 255, 210, 0),
+                            boxShadow: const [
                               BoxShadow(
                                   color: Colors.black, offset: Offset(0, 4))
                             ]),
                         child: C_Text(
                             w_font: FontWeight.w600,
-                            text: '${(vindex + 1).toString()}',
+                            text: (vindex + 1).toString(),
                             ffamily: 'OMNES-ARABIC',
                             fsized: 36,
                             fcolor: Colors.black),
@@ -136,13 +139,13 @@ class videoCard extends StatelessWidget {
                 ],
               ),
               Padding(
-                padding: EdgeInsets.all(18),
+                padding: const EdgeInsets.all(18),
                 child: button(
                     b_border: 20,
                     bHieght: 56,
                     bWidth: double.infinity,
                     bText: 'تعلم اكثر عن التكنولوجيا',
-                    bcolor: Color.fromARGB(255, 255, 95, 132),
+                    bcolor:const Color.fromARGB(255, 255, 95, 132),
                     b_fun: () {
                       Navigator.push(
                         context,

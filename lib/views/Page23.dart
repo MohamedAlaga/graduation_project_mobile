@@ -8,7 +8,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-
 import 'Page9.dart';
 
 class community extends StatelessWidget {
@@ -17,48 +16,38 @@ class community extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 250, 237),
+      backgroundColor: const Color.fromARGB(255, 255, 250, 237),
+      appBar: AppBar(
+        bottom: const PreferredSize(
+          preferredSize: Size.fromHeight(25.0),
+          child: S_Image(),
+        ),
+        leading: const PNG_button(
+          png_Logo: 'arrow_back .png',
+        ),
+        title: const stork_text(
+          w_sized: FontWeight.w700,
+          Stext: 'المجتمع',
+          s_ctext: Colors.white,
+          sfamily: 'AA-GALAXY',
+          sT_Sized: 38,
+          Y_offdet: 6,
+        ),
+        centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 255, 250, 237),
+        surfaceTintColor: Colors.transparent,
+        elevation: 10,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
+          physics: const ScrollPhysics(),
           child: Column(
             children: [
-              SizedBox(
-                height: 24,
-              ),
-              Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    PNG_button(
-                      png_Logo: 'arrow_back .png',
-                      png_widget: information(),
-                    ),
-                    SizedBox(
-                      width: 105,
-                    ),
-                    stork_text(
-                      w_sized: FontWeight.w700,
-                      Stext: 'المجتمع',
-                      s_ctext: Colors.white,
-                      sfamily: 'AA-GALAXY',
-                      sT_Sized: 38,
-                      Y_offdet: 6,
-                    ),
-                    SizedBox(
-                      width: 133,
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              S_Image(),
-              SizedBox(
+              const SizedBox(
                 height: 28,
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
+              const Padding(
+                padding: EdgeInsets.only(top: 10),
                 child: C_Text(
                     w_font: FontWeight.w600,
                     text:
@@ -67,11 +56,11 @@ class community extends StatelessWidget {
                     fsized: 20,
                     fcolor: Colors.black),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 17,
               ),
               Padding(
-                padding: EdgeInsets.only(
+                padding:const EdgeInsets.only(
                   left: 8,
                   right: 8,
                 ),
@@ -90,11 +79,11 @@ class community extends StatelessWidget {
                       bottom: 11,
                       child: Align(
                         alignment: Alignment.center,
-                        //  رضا البحراوي دق الهوي 
+                        //  رضا البحراوي دق الهوي
                         child: YoutubePlayer(
                           controller: YoutubePlayerController(
                             initialVideoId: 'gLpt8bfF_uk',
-                            flags: YoutubePlayerFlags(
+                            flags:const YoutubePlayerFlags(
                               showLiveFullscreenButton: true,
                               enableCaption: true,
                               autoPlay: true,
@@ -109,48 +98,48 @@ class community extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 32,
               ),
-              C_Text(
+              const C_Text(
                   w_font: FontWeight.w600,
                   text: '1- اتبع الخطوات المشروحة في الفيديو🧐 ',
                   ffamily: 'OMNES-ARABIC',
                   fsized: 20,
                   fcolor: Colors.black),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              C_Text(
+              const C_Text(
                   w_font: FontWeight.w600,
                   text: '2- التزم بأداب واخلاقيات المجتمع📃',
                   ffamily: 'OMNES-ARABIC',
                   fsized: 20,
                   fcolor: Colors.black),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              C_Text(
+              const C_Text(
                   w_font: FontWeight.w600,
                   text: '3- شارك رأيك بحرية و تفاعل باستمرار 💭',
                   ffamily: 'OMNES-ARABIC',
                   fsized: 20,
                   fcolor: Colors.black),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              C_Text(
+              const C_Text(
                   w_font: FontWeight.w600,
                   text: '4- كون صداقات وتواصل بدون خوف😊',
                   ffamily: 'OMNES-ARABIC',
                   fsized: 20,
                   fcolor: Colors.black),
-              SizedBox(
-                height: 96,
+              const SizedBox(
+                height: 40,
               ),
               button(
                 bText: 'الانضمام الي المجتمع',
-                bcolor: Color.fromRGBO(31, 204, 123, 1),
+                bcolor: const Color.fromRGBO(31, 204, 123, 1),
                 b_fun: () {
                   Navigator.push(
                     context,

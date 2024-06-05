@@ -25,6 +25,7 @@ class button extends StatelessWidget {
     return InkWell(
       onTap: b_fun,
       child: Container(
+        alignment: Alignment.center,
           width: bWidth,
           height: bHieght,
           decoration: BoxDecoration(
@@ -32,8 +33,8 @@ class button extends StatelessWidget {
               borderRadius: BorderRadius.circular(b_border),
               border: Border.all(
                   color: Colors.black, style: BorderStyle.solid, width: 2),
-              boxShadow: [
-                BoxShadow(
+              boxShadow: const[
+                 BoxShadow(
                   offset: Offset(0, 4),
                   color: Colors.black,
                 )

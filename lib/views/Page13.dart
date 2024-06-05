@@ -15,19 +15,15 @@ class conentv extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 250, 237),
+      backgroundColor: const Color.fromARGB(255, 255, 250, 237),
       body: SafeArea(
-        child: Container(
-          width: double.infinity,
+        child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
-                height: 20,
-              ),
               YoutubePlayer(
                 controller: YoutubePlayerController(
                   initialVideoId: videoId,
-                  flags: YoutubePlayerFlags(
+                  flags: const YoutubePlayerFlags(
                     showLiveFullscreenButton: true,
                     enableCaption: true,
                     autoPlay: true,
@@ -37,11 +33,11 @@ class conentv extends StatelessWidget {
                 showVideoProgressIndicator: true,
                 progressIndicatorColor: Colors.red,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 10),
+              const Padding(
+                padding:  EdgeInsets.only(right: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -54,11 +50,11 @@ class conentv extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Padding(
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   left: 16,
                   right: 16,
                 ),
@@ -70,7 +66,7 @@ class conentv extends StatelessWidget {
                       width: 800,
                       height: 332,
                     ),
-                    Positioned.fill(
+                    const Positioned.fill(
                       top: 14,
                       left: 16,
                       right: 16,
@@ -87,8 +83,8 @@ class conentv extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 115,
+              const SizedBox(
+                height: 40,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -97,17 +93,14 @@ class conentv extends StatelessWidget {
                     bText: 'السابق',
                     bcolor: Color.fromARGB(255, 255, 95, 132),
                     b_fun: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => information()),
-                      );
+                      Navigator.maybePop(context);
                     },
                     bF_Text: 32,
                     bHieght: 48,
                     bWidth: 130,
                     b_border: 14,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 96,
                   ),
                   button(
@@ -126,6 +119,9 @@ class conentv extends StatelessWidget {
                   )
                 ],
               )
+              ,const SizedBox(
+                height: 40,
+              ),
             ],
           ),
         ),

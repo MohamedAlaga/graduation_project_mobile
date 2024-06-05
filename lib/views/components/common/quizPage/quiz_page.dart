@@ -2,11 +2,10 @@ import 'package:aabkr/controllers/blocs/quiz_cubit/quiz_cubit.dart';
 import 'package:aabkr/views/commonComponents/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../commonComponents/common_smaller_button.dart';
-import '../commonComponents/core/utils/size_config.dart';
-import '../commonComponents/core/utils/styles.dart';
-import '../quizAnswersPage/quiz_answers_page.dart';
+import 'package:aabkr/views/commonComponents/common_smaller_button.dart';
+import 'package:aabkr/views/commonComponents/core/utils/size_config.dart';
+import 'package:aabkr/views/commonComponents/core/utils/styles.dart';
+import 'package:aabkr/views/quizAnswersPage/quiz_answers_page.dart';
 import 'components/quiz_page_app_bar.dart';
 
 class QuizPage extends StatelessWidget {

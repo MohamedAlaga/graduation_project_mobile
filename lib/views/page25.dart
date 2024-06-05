@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:aabkr/controllers/handle_user_data_update.dart';
 import 'package:aabkr/controllers/logout_controller.dart';
-import 'package:aabkr/views/page2/page2_screen.dart';
 import 'package:aabkr/views/page3/page3_screen.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:aabkr/controllers/get_user_data.dart';
@@ -12,7 +11,6 @@ import 'package:aabkr/views/components/common/main_text_field.dart';
 import 'package:aabkr/views/components/common/waved_line.dart';
 import 'package:aabkr/views/components/settings/circular_btn_with_txt.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Page25 extends StatelessWidget {
@@ -185,7 +183,7 @@ class Page25 extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  CircularBtnWithTxt(
+                                  const CircularBtnWithTxt(
                                     path: "assets/pics/trash.svg",
                                     txt: "حذف الحساب",
                                   ),
