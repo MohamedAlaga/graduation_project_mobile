@@ -1,6 +1,7 @@
 import 'package:aabkr/controllers/blocs/quiz_cubit/quiz_cubit.dart';
 import 'package:aabkr/controllers/login_controller.dart';
 import 'package:aabkr/views/Page10.dart';
+import 'package:aabkr/views/Page9.dart';
 import 'package:aabkr/views/commonComponents/common_button.dart';
 import 'package:aabkr/views/commonComponents/common_text_field.dart';
 import 'package:aabkr/views/commonComponents/core/utils/constants.dart';
@@ -8,6 +9,7 @@ import 'package:aabkr/views/commonComponents/divider.dart';
 import 'package:aabkr/views/commonComponents/galaxy_text.dart';
 import 'package:aabkr/views/commonComponents/google_facebook_container.dart';
 import 'package:aabkr/views/commonComponents/omnes_text.dart';
+import 'package:aabkr/views/page4.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -81,13 +83,16 @@ class Page3 extends StatelessWidget {
                             //  return 'password must be 8 characters or more';}
                           },
                           controller: cubit.passwordController)),
-                  const Positioned(
+                   Positioned(
                     top: 450,
                     right: 14,
                     left: 200,
-                    child: Text(
-                      'نسيت كلمة المرور؟',
-                      style: Styles.style20r,
+                    child: InkWell(onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Page4()));},
+                      child: const Text(
+                        'نسيت كلمة المرور؟',
+                        style: Styles.style20r,
+                      ),
                     ),
                   ),
                   Positioned(
@@ -122,7 +127,6 @@ class Page3 extends StatelessWidget {
                                           ).show();
                             } else
                             {
-                              print(login.toString());
                               AwesomeDialog(
                                             context: context,
                                             dialogType: DialogType.error,
@@ -142,7 +146,7 @@ class Page3 extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           GestureDetector(
-                              onTap: () {},
+                              onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => (information())));},
                               child: const OmnesText(
                                   text: ' انشاء حساب جديد', color: mainGreen)),
                           const SizedBox(

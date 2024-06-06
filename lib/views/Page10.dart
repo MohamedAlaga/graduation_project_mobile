@@ -1,26 +1,85 @@
+import 'package:aabkr/controllers/checkPass.dart';
 import 'package:aabkr/views/Page12.dart';
 import 'package:aabkr/views/Page23.dart';
 import 'package:aabkr/views/Page9.dart';
 import 'package:aabkr/views/components/common/S_Text.dart';
 import 'package:aabkr/views/components/common/buttons.dart';
 import 'package:aabkr/views/components/common/common_text.dart';
+import 'package:aabkr/views/components/common/dialog_button.dart';
 import 'package:aabkr/views/components/common/png_button.dart';
 import 'package:aabkr/views/components/common/s_image.dart';
+import 'package:aabkr/views/components/common/setting_dialoge.dart';
 import 'package:aabkr/views/components/common/svg_button.dart';
+import 'package:aabkr/views/page25.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // repalce information widget
 class computer extends StatelessWidget {
-  const computer({super.key, required this.token});
+  computer({super.key, required this.token});
   final String token;
+  TextEditingController control = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 250, 237),
-      appBar: AppBar(bottom: const PreferredSize(preferredSize: Size.fromHeight(25.0), child: S_Image(), ),
+      appBar: AppBar(
+        bottom: const PreferredSize(
+          preferredSize: Size.fromHeight(25.0),
+          child: S_Image(),
+        ),
         leading: Column(
-          children: [const SizedBox(height: 7),
-            PNG_button(png_Logo: 'Gear.png', png_widget: information()),
+          children: [
+            const SizedBox(height: 7),
+            PNG_button(
+                png_Logo: 'Gear.png',
+                func: () {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return SettingDialoge(
+                          buttons: DialogButton(
+                            title: "الدخول الي الاعدادات",
+                            func: () async {
+                              int pass =
+                                  await checkPassController(control.text);
+                              control.text = '';
+                              if (pass == 1) {
+                                Navigator.pop(context);
+                                var prefs =
+                                    await SharedPreferences.getInstance();
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Page25(
+                                          token: prefs
+                                              .getString('token')
+                                              .toString())),
+                                );
+                              } else if (pass == 0) {
+                                       AwesomeDialog(
+                                          context: context,
+                                          dialogType: DialogType.error,
+                                          animType: AnimType.topSlide,
+                                          title: "بيانات المستخدم غير صحيحة",
+                                          btnOkText: "حسنا",
+                                          btnOkOnPress: () {}).show();
+                              } else {AwesomeDialog(
+                                            context: context,
+                                            dialogType: DialogType.error,
+                                            animType: AnimType.topSlide,
+                                            title: "حدث خطأ ما، يرجى المحاولة مرة أخرى",
+                                            btnOkText: "حسنا",
+                                            btnOkOnPress: (){}
+                                          ).show();}
+                            },
+                          ),
+                          controler: control,
+                        );
+                      });
+                }),
             const SizedBox(
               height: 1,
             ),
@@ -41,7 +100,8 @@ class computer extends StatelessWidget {
             sT_Sized: 36),
         actions: const [
           Column(
-            children: [ SizedBox(height: 7),
+            children: [
+              SizedBox(height: 7),
               SVG_button(svg_Logo: 'Frame 43.svg', svg_widget: community()),
               SizedBox(
                 height: 1,
@@ -181,7 +241,9 @@ class computer extends StatelessWidget {
                     bWidth: 156,
                     b_border: 14,
                   ),
-                  const SizedBox(height: 50,)
+                  const SizedBox(
+                    height: 50,
+                  )
                 ],
               )
             ],

@@ -25,7 +25,7 @@ class Lmore extends StatelessWidget {
                 children: [
                   PNG_button(
                     png_Logo: 'arrow_back .png',
-                    png_widget: information(),
+                    func: (){Navigator.pop(context);},
                   ),
                   const SizedBox(
                     width: 38,

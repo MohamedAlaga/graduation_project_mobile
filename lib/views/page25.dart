@@ -183,9 +183,10 @@ class Page25 extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  const CircularBtnWithTxt(
+                                   CircularBtnWithTxt(
                                     path: "assets/pics/trash.svg",
                                     txt: "حذف الحساب",
+                                    onpress: (){},
                                   ),
                                   CircularBtnWithTxt(
                                     path: "assets/pics/logout.svg",

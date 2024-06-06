@@ -1,9 +1,12 @@
+import 'package:aabkr/views/commonComponents/core/utils/constants.dart';
+import 'package:aabkr/views/commonComponents/omnes_text.dart';
 import 'package:aabkr/views/components/common/S_Text.dart';
 import 'package:aabkr/views/components/common/button_image.dart';
 import 'package:aabkr/views/components/common/buttons.dart';
 import 'package:aabkr/views/components/common/common_text.dart';
 import 'package:aabkr/views/components/common/my_text_filed.dart';
 import 'package:aabkr/views/components/common/password_TextFiled.dart';
+import 'package:aabkr/views/page3/page3_screen.dart';
 import 'package:flutter/material.dart';
 
 class information extends StatelessWidget {
@@ -14,30 +17,21 @@ class information extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
-//  @override
-//   void dispose() {
-//     _fatherNameController.dispose();
-//     _geniusNameController.dispose();
-//     _geniusAgeController.dispose();
-//     _emailController.dispose();
-//     _passwordController.dispose();
-//     _phoneController.dispose();
 
-//   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 250, 237),
+      backgroundColor: const Color.fromARGB(255, 255, 250, 237),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Container(
+          child:  SizedBox(
             width: double.infinity,
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
-                stork_text(
+                const stork_text(
                   Y_offdet: 6,
                   w_sized: FontWeight.w700,
                   Stext: 'بياناتك',
@@ -81,25 +75,15 @@ class information extends StatelessWidget {
                   child: my_text_filed(
                       controller: _phoneController, h_text: 'رقم الهاتف'),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 46,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 16, right: 16),
                   child: button(
                     bText: 'انشاء حساب جديد',
-                    bcolor: Color.fromRGBO(31, 204, 123, 1),
-                    //bwidget: create(),
+                    bcolor: const Color.fromRGBO(31, 204, 123, 1),
                     b_fun: () {
-                      // register(
-                      //   context: context,
-                      //   email: _emailController.text,
-                      //   fatherName: _fatherNameController.text,
-                      //   geniusAge: _geniusAgeController.text,
-                      //   geniusName: _geniusNameController.text,
-                      //   password: _passwordController.text,
-                      //   phone: _phoneController.text,
-                      // );
                     },
                     bF_Text: 32,
                     bHieght: 56,
@@ -107,22 +91,17 @@ class information extends StatelessWidget {
                     b_border: 14,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
-                Row(
+                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Center(
-                        child: stork_text(
-                      Y_offdet: 4,
-                      w_sized: FontWeight.w600,
-                      Stext: 'تسجيل الدخول',
-                      s_ctext: Color.fromARGB(255, 31, 204, 123),
-                      sfamily: 'OMNES-ARABIC',
-                      sT_Sized: 20,
-                    )),
-                    stork_text(
+                    GestureDetector(
+                              onTap: () {Navigator.pop(context);},
+                              child: const OmnesText(
+                                  text: 'تسجيل الدخول', color: mainGreen)),
+                    const stork_text(
                       Y_offdet: 4,
                       w_sized: FontWeight.w600,
                       Stext: 'هل لديك حساب علي عبقر ؟',
@@ -130,28 +109,28 @@ class information extends StatelessWidget {
                       sfamily: 'OMNES-ARABIC',
                       sT_Sized: 20,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
-                C_Text(
+                const C_Text(
                     w_font: FontWeight.w600,
                     text: '_____________او الدخول باستخدام _____________',
                     ffamily: 'OMNES-ARABIC',
                     fsized: 16,
                     fcolor: Color.fromARGB(255, 163, 163, 163)),
-                SizedBox(
+                const SizedBox(
                   height: 32,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         left: 16,
                       ),
                       child: button_image(
@@ -160,14 +139,13 @@ class information extends StatelessWidget {
                         b_border: 14,
                         bcolor: Color.fromARGB(255, 255, 95, 132),
                         nhight: 48,
-                        nwidth: 180,
                       ),
                     ),
                     SizedBox(
                       width: 16,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         right: 16,
                       ),
                       child: button_image(
@@ -176,12 +154,11 @@ class information extends StatelessWidget {
                         b_border: 14,
                         bcolor: Color.fromARGB(255, 255, 95, 132),
                         nhight: 48,
-                        nwidth: 180,
                       ),
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 )
               ],

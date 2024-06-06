@@ -2,18 +2,18 @@ import 'package:aabkr/views/components/common/setting_dialoge.dart';
 import 'package:flutter/material.dart';
 
 class MainButton extends StatelessWidget {
-    const MainButton(
+     MainButton(
       {super.key,
       required this.title,
       this.padd = 20.0,
       this.bcolor = const Color(0xFF1FCC7B),
       this.fcolor = Colors.white,
-      this.onpress = callDialog,});
+      required this.onpress });
   final String title;
   final double padd;
   final Color bcolor;
   final Color fcolor;
-  final Function onpress;
+   Function onpress;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -45,4 +45,7 @@ class MainButton extends StatelessWidget {
     );
   }
 
+}
+
+class requied {
 }

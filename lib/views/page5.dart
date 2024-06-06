@@ -51,8 +51,9 @@ class Page5 extends StatelessWidget {
               ),
               const ParagrahpText(txt: "إعادة الارسال", size: 18),
               const SizedBox(height: 26),
-               const MainButton(
+                MainButton(
                 title: "التالي",
+                onpress: (){},
                 padd: 33,
               )
             ],

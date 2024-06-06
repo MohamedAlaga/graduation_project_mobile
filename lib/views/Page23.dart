@@ -6,6 +6,7 @@ import 'package:aabkr/views/components/common/s_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import 'Page9.dart';
@@ -22,8 +23,9 @@ class community extends StatelessWidget {
           preferredSize: Size.fromHeight(25.0),
           child: S_Image(),
         ),
-        leading: const PNG_button(
+        leading:  PNG_button(
           png_Logo: 'arrow_back .png',
+          func: (){Navigator.pop(context);},
         ),
         title: const stork_text(
           w_sized: FontWeight.w700,

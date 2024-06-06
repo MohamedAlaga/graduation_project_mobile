@@ -10,7 +10,7 @@ class CircularBtnWithTxt extends StatelessWidget {
     required this.txt,
     this.imgsize=60,
     this.txtsize=12,
-    this.onpress=callDialog,
+    required this.onpress,
   });
  final String path;
  final String txt;

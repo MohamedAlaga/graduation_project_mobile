@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
 class DialogTextField extends StatelessWidget {
-  const DialogTextField({
+   DialogTextField({
     super.key,required this.outlinecolor,
+    required this.cont
   });
   final Color outlinecolor;
+  TextEditingController cont = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return  TextField(
+      controller: cont,
       style: const TextStyle(
         height: 0.8,
           fontSize: 28,

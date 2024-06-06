@@ -46,9 +46,9 @@ class Page18 extends StatelessWidget {
             ParagrahpText(txt: paths.values.elementAt(index), size: 36),
             const SizedBox(height: 40),
             HeadlineText(title: "$grade%",fsize:96 ,),
-             const MainButton(title: "شهادة المستوى",bcolor: Color(0xFF00DCEA),),
+              MainButton(title: "شهادة المستوى",bcolor: Color(0xFF00DCEA),onpress: (){},),
             const SizedBox(height: 24),
-             const MainButton(title: "مراجعة اجاباتك",)
+              MainButton(title: "مراجعة اجاباتك",onpress: (){})
              ,const SizedBox(height: 48)
           ],
         ),

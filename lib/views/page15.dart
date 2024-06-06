@@ -17,27 +17,27 @@ class Page15 extends StatelessWidget {
         centerTitle: true,
         title: const HeadlineText(title: "اختبر معلوماتك"),
       ),
-      body: const Column(
+      body:  Column(
         children: [
-           WavedLine(),
-            SizedBox(
+           const WavedLine(),
+           const SizedBox(
             height: 30,
           ),
             Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                 FaceWidget(facePath:"assets/pics/nerd_face.png"),
-                  SizedBox(height: 35),
-                  ParagrahpText(txt:"اختبار بسيط لمعلوماتك علي المسلسل"),
-                  ParagrahpText(txt:"بالكامل من البداية الي النهاية"),
-                  SizedBox(height: 20),
-                  ParagrahpText(txt:"مكون من 20 سؤال بسيط"),
-                  ParagrahpText(txt:"يمكنك اعادة الاختبار اكثر من مره"),
-                  SizedBox(height: 20),
-                  ParagrahpText(txt:"😊 لا يوجد وقت للانهاء 😊"),
-                  SizedBox(height: 50),
-                 MainButton(title:"اذهب للاختبار"),
+                 const FaceWidget(facePath:"assets/pics/nerd_face.png"),
+                  const SizedBox(height: 35),
+                  const ParagrahpText(txt:"اختبار بسيط لمعلوماتك علي المسلسل"),
+                  const ParagrahpText(txt:"بالكامل من البداية الي النهاية"),
+                  const SizedBox(height: 20),
+                  const ParagrahpText(txt:"مكون من 20 سؤال بسيط"),
+                  const ParagrahpText(txt:"يمكنك اعادة الاختبار اكثر من مره"),
+                  const SizedBox(height: 20),
+                  const ParagrahpText(txt:"😊 لا يوجد وقت للانهاء 😊"),
+                  const SizedBox(height: 50),
+                 MainButton(title:"اذهب للاختبار",onpress: (){},),
               ],
             ),
           ),

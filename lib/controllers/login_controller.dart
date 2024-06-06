@@ -34,8 +34,11 @@ loginController(String email, String password) async {
         'Content-Type': 'application/json',
         'host': "10.2.2.2:8000"
       },
-    );
+    ).timeout(const Duration(seconds: 10));
     var responseBody = jsonDecode(response.body);
+    if (response.statusCode != 200) {
+      return -1;
+    }
     if (responseBody['access_token'] != null) {
       prefs.setString('token', responseBody['access_token']);
       return 1;

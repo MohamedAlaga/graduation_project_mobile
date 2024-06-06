@@ -3,30 +3,19 @@ import 'package:flutter/material.dart';
 class PNG_button extends StatelessWidget {
   const PNG_button({
     required this.png_Logo,
-    this.png_widget,
+    required this.func,
     super.key,
   });
   final String png_Logo;
-  final Widget? png_widget;
+  final Function func;
   @override
   Widget build(BuildContext context) {
-    if (this.png_widget != null) {
+    
       return GestureDetector(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => png_widget!),
-          );
+          func();
         },
         child: Image.asset('assets/pics/$png_Logo'),
       );
-    } else {
-      return GestureDetector(
-        onTap: () {
-          Navigator.maybePop(context);
-        },
-        child: Image.asset('assets/pics/$png_Logo'),
-      );
-    }
   }
 }
