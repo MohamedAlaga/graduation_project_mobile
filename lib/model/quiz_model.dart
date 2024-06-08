@@ -1,69 +1,83 @@
-class Test {
-  int id;
-  String title;
-  int courseId;
-  int timeLimit;
-  List<Question> questions;
 
-  Test({
-    required this.id,
-    required this.title,
-    required this.courseId,
-    required this.timeLimit,
-    required this.questions,
-  });
+class QuizQuestion {
+  String ? questionId ;
+  String ? questionText;
+  String ? answerOneId ;
+  String ? answerOneText ;
+  String ? answerOneIsCorrect;
+  String ? answerTwoId ;
+  String ? answerTwoText ;
+  String ? answerTwoIsCorrect;
+  String ? answerThreeId ;
+  String ? answerThreeText ;
+  String ? answerThreeIsCorrect;
+  String ? userSelectedAnswerId;
 
-  factory Test.fromJson(Map<String, dynamic> json) {
-    return Test(
-      id: json['id'],
-      title: json['title'],
-      courseId: json['course_id'],
-      timeLimit: json['time_limit'],
-      questions: (json['questions'] as List)
-          .map((questionJson) => Question.fromJson(questionJson))
-          .toList(),
-    );
+
+  Map<String,dynamic> toJson (){
+    return {'question_id' : int.parse(questionId.toString()),
+      'answer_id' : int.parse(userSelectedAnswerId.toString())
+    };
   }
+
+  QuizQuestion({
+    this.questionId,
+    this.questionText,
+    this.answerOneId,
+    this.answerOneText,
+    this.answerOneIsCorrect,
+    this.answerTwoId,
+    this.answerTwoText,
+    this.answerTwoIsCorrect,
+    this.answerThreeId,
+    this.answerThreeText,
+    this.answerThreeIsCorrect});
 }
 
-class Question {
-  int id;
-  String text;
-  List<Answer> answers;
 
-  Question({
-    required this.id,
-    required this.text,
-    required this.answers,
-  });
 
-  factory Question.fromJson(Map<String, dynamic> json) {
-    return Question(
-      id: json['id'],
-      text: json['text'],
-      answers: (json['answers'] as List)
-          .map((answerJson) => Answer.fromJson(answerJson))
-          .toList(),
-    );
-  }
-}
 
-class Answer {
-  int id;
-  String text;
-  bool isCorrect;
 
-  Answer({
-    required this.id,
-    required this.text,
-    required this.isCorrect,
-  });
 
-  factory Answer.fromJson(Map<String, dynamic> json) {
-    return Answer(
-      id: json['id'],
-      text: json['text'],
-      isCorrect: json['is_correct'] == 1,
-    );
-  }
-}
+
+
+
+
+
+
+List<QuizQuestion> q = [
+  QuizQuestion(
+    questionId: "1",
+    questionText: "What is the capital of France?",
+    answerOneId: "1",
+    answerOneText: "Paris",
+    answerOneIsCorrect: "1",
+    answerTwoId: "2",
+    answerTwoText: "London",
+    answerTwoIsCorrect: "0",
+    answerThreeId: "3",
+    answerThreeText: "Berlin",
+    answerThreeIsCorrect: "0",
+  ),
+  QuizQuestion(
+    questionId: "2",
+    questionText: "What is 2 + 2?",
+    answerOneId: "1",
+    answerOneText: "3",
+    answerOneIsCorrect: "0",
+    answerTwoId: "2",
+    answerTwoText: "4",
+    answerTwoIsCorrect: "1",
+    answerThreeId: "3",
+    answerThreeText: "5",
+    answerThreeIsCorrect: "0",
+  )
+];
+
+
+
+
+
+
+
+

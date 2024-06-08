@@ -1,4 +1,4 @@
-import 'package:aabkr/controllers/blocs/quiz_cubit/quiz_cubit.dart';
+
 import 'package:aabkr/views/Page10.dart';
 import 'package:aabkr/views/Page12.dart';
 import 'package:aabkr/views/Page23.dart';
@@ -19,12 +19,7 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    MultiProvider(
-      providers: [
-        BlocProvider(create: (context) => QuizCubit()),
-      ],
-      child: const MyApp(),
-    ),
+    const MyApp(),
   );
 }
 

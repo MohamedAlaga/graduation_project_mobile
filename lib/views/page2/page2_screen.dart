@@ -41,7 +41,7 @@ class Page2 extends StatelessWidget {
                     Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Page3(),
+                          builder: (context) => Page3(),
                         ),
                         (route) => false);
                   },

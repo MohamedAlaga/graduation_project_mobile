@@ -76,7 +76,7 @@ class Page27 extends StatelessWidget {
                 right: 24,
                 left: 22,
                 child: CommonButton(fun:(){
-                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder:(context) => const QuizPage(),), (route) => false);
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder:(context) => QuizPage(quizQuestions: [],),), (route) => false);
                 },
                     buttonColor: const Color(0xff1fcc7b), text: 'انتقل الي المستوى الثاني')),
           ],
