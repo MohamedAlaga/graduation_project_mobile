@@ -1,6 +1,10 @@
+import 'package:aabkr/controllers/controllers/controllers.dart';
+import 'package:aabkr/model/quiz_model.dart';
 import 'package:aabkr/views/Page9.dart';
 import 'package:aabkr/views/components/common/buttons.dart';
 import 'package:aabkr/views/components/common/common_text.dart';
+import 'package:aabkr/views/quizPage/quiz_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 
 class finB_tam extends StatelessWidget {
@@ -20,10 +24,15 @@ class finB_tam extends StatelessWidget {
                 bWidth: 328,
                 bText: 'الاختبار النهائي 🤔',
                 bcolor: Color.fromARGB(255, 255, 210, 0),
-                b_fun: () {
+                b_fun: () async{
+                  var prefs = await SharedPreferences.getInstance();
+                  String token = prefs.getString('token').toString();
+                  List<QuizQuestion> test = await createTest(token);
+                  print(test[0].questionText);
+                  print(test[1].questionText);
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => information()),
+                    MaterialPageRoute(builder: (context) => QuizPage( quizQuestions: test ,)),
                   );
                 },
                 bF_Text: 28),
@@ -77,10 +86,12 @@ class finB_msht extends StatelessWidget {
                 bWidth: 328,
                 bText: 'الاختبار النهائي 🤔',
                 bcolor: Color.fromARGB(255, 255, 210, 0),
-                b_fun: () {
+                b_fun: () async{
+                  var prefs = await SharedPreferences.getInstance();
+                  String token = prefs.getString('token').toString();
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => information()),
+                    MaterialPageRoute(builder: (context) => QuizPage( quizQuestions: createTest(token),)),
                   );
                 },
                 bF_Text: 28),

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:aabkr/env_globals.dart';
 import 'package:http/http.dart' as http;
 
 import '../../model/quiz_model.dart';
@@ -9,7 +10,7 @@ createTest(String token) async {
   try {
     var quizData = await http.get(
       Uri.parse(
-        'http://192.168.1.9:5000/api/tests/create/1',
+        '$domainName/api/tests/create/1',
       ),
       headers: <String, String>{
         'User-Agent': 'mobileApp',
@@ -55,36 +56,42 @@ saveTest(List <QuizQuestion> stored ,String token) async {
     Map <String,dynamic> jsonBody = {
       'answers' : jsonList
     };
-    print(jsonBody.toString());
     var storedData = await http.post(
         Uri.parse(
-          'http://192.168.1.9:5000/api/user-tests/1/answers',
+          '$domainName/api/user-tests/1/answers',
         ),
         headers: <String, String>{
-          'User-Agent': 'mobileApp',
-          'Accept': '*/*',
-          'Accept-Encoding': 'gzip, deflate, br',
-          'Connection': 'keep-alive',
           'Content-Type': 'application/json',
-          'host': "192.168.1.9:5000",
           'Authorization': 'Bearer $token',
         },
         body: jsonEncode(jsonBody)
-
     );
-    print(jsonDecode(storedData.body)['message']);
-
     if(storedData.statusCode == 200){
       return 1;
+    }else if(storedData.statusCode == 302){
+      var redirectedUrl = storedData.headers['location'];
+      if (redirectedUrl != null) {
+        var redirectResponse = await http.get(
+          Uri.parse(redirectedUrl),
+          headers: <String, String>{
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer $token',
+          },
+        );
+        if (redirectResponse.statusCode == 200) {
+          return 1;
+        } else {
+          return 0;
+        }
+      } else {
+        return 0;
+      }
     }
     else {
-      print('fali');
-      print(storedData.statusCode);
       return 0;
     }
 
   } catch (e) {
-    print('Error :$e');
     return 0;
   }
 }

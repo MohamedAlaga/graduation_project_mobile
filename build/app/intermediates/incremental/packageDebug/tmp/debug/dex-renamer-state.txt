@@ -1,4 +1,4 @@
-#Thu Jun 06 01:09:07 EET 2024
+#Sat Jun 08 22:33:14 EET 2024
 base.0=D\:\\graduation project\\graduation_project_mobile\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=D\:\\graduation project\\graduation_project_mobile\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
 base.2=D\:\\graduation project\\graduation_project_mobile\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex

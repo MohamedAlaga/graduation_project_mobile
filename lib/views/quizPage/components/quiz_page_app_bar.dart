@@ -17,11 +17,11 @@ AppBar quizAppBar() {
     leading: Center(
       child: InkWell(
           onTap: () {},
-          child:SvgPicture.asset('assets/images/arrow_back.svg')),
+          child:SvgPicture.asset('assets/pics/arrow_back.svg')),
     ),
 
     bottom: PreferredSize(
         preferredSize: Size.fromHeight(SizeConfig.screenHeight! * 0.04),
-        child: SvgPicture.asset('assets/images/appBar.svg')),
+        child: SvgPicture.asset('assets/pics/appBar.svg')),
   );
 }

@@ -7,6 +7,8 @@ import '../commonComponents/core/utils/size_config.dart';
 import '../commonComponents/core/utils/styles.dart';
 import '../quizAnswersPage/quiz_answers_page.dart';
 import 'components/quiz_page_app_bar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 class QuizPage extends StatefulWidget {
   final List<QuizQuestion> quizQuestions;
@@ -47,7 +49,9 @@ class _QuizPageState extends State<QuizPage> {
         }
         print('question : ${widget.quizQuestions[i].questionText} , answer is :${widget.quizQuestions[i].userSelectedAnswerId } ');
       }
-      var y = await saveTest(widget.quizQuestions, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTkyLjE2OC4xLjk6NTAwMC9hcGkvbG9naW4iLCJpYXQiOjE3MTc4NjY1MDksImV4cCI6MTcxNzg3MDEwOSwibmJmIjoxNzE3ODY2NTA5LCJqdGkiOiJ1WHdsWmV2MkpMZDBsOTh6Iiwic3ViIjoiMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.lde7QJCKUGfCpGwnr8nBFOEO0Ae17wUQp31qbxQhdJA');
+      var prefs = await SharedPreferences.getInstance();
+                  String token = prefs.getString('token').toString();
+      var y = await saveTest(widget.quizQuestions, token);
       print(y.toString());
 
       Navigator.push(
