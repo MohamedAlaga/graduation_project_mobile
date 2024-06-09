@@ -4,7 +4,7 @@
             "outputFile": "com.example.aabkr.app-mergeDebugResources-26:/values-v31/values-v31.xml",
             "map": [
                 {
-                    "source": "D:\\graduation project\\graduation_project_mobile\\android\\app\\src\\main\\res\\values-v31\\styles.xml",
+                    "source": "C:\\Users\\Ramiah\\Desktop\\zip\\graduation_project_mobile\\android\\app\\src\\main\\res\\values-v31\\styles.xml",
                     "from": {
                         "startLines": "3,15",
                         "startColumns": "4,4",

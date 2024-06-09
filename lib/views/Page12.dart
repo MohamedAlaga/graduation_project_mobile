@@ -1,4 +1,6 @@
+import 'package:aabkr/controllers/calculate_progress_bar.dart';
 import 'package:aabkr/controllers/checkPass.dart';
+import 'package:aabkr/controllers/corus_info.dart';
 import 'package:aabkr/views/Page23.dart';
 import 'package:aabkr/views/components/common/S_Text.dart';
 import 'package:aabkr/views/components/common/common_text.dart';
@@ -6,13 +8,10 @@ import 'package:aabkr/views/components/common/degree.dart';
 import 'package:aabkr/views/components/common/dialog_button.dart';
 import 'package:aabkr/views/components/common/final_but.dart';
 import 'package:aabkr/views/components/common/png_button.dart';
-import 'package:aabkr/views/components/common/proggress_bar.dart';
 import 'package:aabkr/views/components/common/s_image.dart';
 import 'package:aabkr/views/components/common/setting_dialoge.dart';
 import 'package:aabkr/views/components/common/svg_button.dart';
-import 'package:aabkr/views/data.dart';
 import 'package:aabkr/views/page25.dart';
-import 'package:aabkr/views/video-card.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -37,7 +36,9 @@ class V_List extends StatelessWidget {
         leading: Column(
           children: [
             const SizedBox(height: 7),
-            PNG_button(png_Logo: 'Gear.png', func:() {
+            PNG_button(
+                png_Logo: 'Gear.png',
+                func: () {
                   showDialog(
                       context: context,
                       builder: (BuildContext context) {
@@ -61,26 +62,31 @@ class V_List extends StatelessWidget {
                                               .toString())),
                                 );
                               } else if (pass == 0) {
-                                       AwesomeDialog(
-                                          context: context,
-                                          dialogType: DialogType.error,
-                                          animType: AnimType.topSlide,
-                                          title: "بيانات المستخدم غير صحيحة",
-                                          btnOkText: "حسنا",
-                                          btnOkOnPress: () {}).show();
-                              } else {AwesomeDialog(
-                                            context: context,
-                                            dialogType: DialogType.error,
-                                            animType: AnimType.topSlide,
-                                            title: "حدث خطأ ما، يرجى المحاولة مرة أخرى",
-                                            btnOkText: "حسنا",
-                                            btnOkOnPress: (){}
-                                          ).show();}
+                                AwesomeDialog(
+                                        context: context,
+                                        dialogType: DialogType.error,
+                                        animType: AnimType.topSlide,
+                                        title: "بيانات المستخدم غير صحيحة",
+                                        btnOkText: "حسنا",
+                                        btnOkOnPress: () {})
+                                    .show();
+                              } else {
+                                AwesomeDialog(
+                                        context: context,
+                                        dialogType: DialogType.error,
+                                        animType: AnimType.topSlide,
+                                        title:
+                                            "حدث خطأ ما، يرجى المحاولة مرة أخرى",
+                                        btnOkText: "حسنا",
+                                        btnOkOnPress: () {})
+                                    .show();
+                              }
                             },
                           ),
                           controler: control,
                         );
-                      });}),
+                      });
+                }),
             const SizedBox(
               height: 1,
             ),
@@ -99,8 +105,12 @@ class V_List extends StatelessWidget {
             s_ctext: Colors.white,
             sfamily: 'AA-GALAXY',
             sT_Sized: 36),
-        actions:  [
-          InkWell(onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => community()));},
+        actions: [
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => community()));
+            },
             child: const Column(
               children: [
                 SizedBox(height: 7),
@@ -128,28 +138,15 @@ class V_List extends StatelessWidget {
           Expanded(
             child: CustomScrollView(
               slivers: [
-                const SliverToBoxAdapter(
+                SliverToBoxAdapter(
                   child: Padding(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       top: 8.0,
                     ),
-                    child: progres_bar(percentage: 25),
+                    child: ProgressScreen(),
                   ),
                 ),
-                SliverPadding(
-                  padding: const EdgeInsets.only(top: 8),
-                  sliver: SliverList(
-                    delegate: SliverChildBuilderDelegate((context, index) {
-                      final video = videos[index];
-                      final int xvindex = index;
-
-                      return VideoCard(
-                        video: video,
-                        vindex: xvindex,
-                      );
-                    }, childCount: videos.length),
-                  ),
-                ),
+                VideoListScreen(),
                 const SliverToBoxAdapter(
                   child: Padding(
                     padding: EdgeInsets.only(right: 16, left: 16),

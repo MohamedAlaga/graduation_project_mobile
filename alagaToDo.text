@@ -3,3 +3,8 @@ change api uri on controllers to use domainName variable
 button "التالي" in video page should go to the article
 better logo for splash screen
 fix quiz flow
+
+handle token in 2 files in controllers :-
+1- calculate progress bar.
+2-corus info.
+replace the string token to the token that come from login

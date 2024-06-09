@@ -1,17 +1,16 @@
-import 'package:aabkr/controllers/checkPass.dart';
-import 'package:flutter/material.dart';
-import 'paragraph_text.dart';
-import 'package:aabkr/views/components/common/dialog_button.dart';
 import 'package:aabkr/views/components/common/dialog_text_field.dart';
-  
+import 'package:flutter/material.dart';
+
+import 'paragraph_text.dart';
+
 class SettingDialoge extends StatelessWidget {
-   SettingDialoge({
+  SettingDialoge({
     super.key,
     this.outlinecolor = const Color(0xFF00DCEA),
-    required this.buttons ,
+    required this.buttons,
     required this.controler,
   });
-  TextEditingController controler ;
+  TextEditingController controler;
   final Color outlinecolor;
   final Widget buttons;
   @override
@@ -57,7 +56,7 @@ class SettingDialoge extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                   DialogTextField(outlinecolor: outlinecolor,cont: controler),
+                  DialogTextField(outlinecolor: outlinecolor, cont: controler),
                   const SizedBox(
                     height: 16,
                   ),

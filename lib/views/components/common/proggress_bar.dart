@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
-
 class progres_bar extends StatelessWidget {
   const progres_bar({
     super.key,
@@ -16,7 +15,7 @@ class progres_bar extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16),
         child: Container(
-          width: 600, // Adjusted width to accommodate for the border and shadow
+          width: 600,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             border: Border.all(color: Colors.black, width: 2),
@@ -51,13 +50,13 @@ class progres_bar extends StatelessWidget {
                 ),
               ),
               Positioned(
-                left: 16, // Adjust the left position as needed
+                left: 16,
                 top: 0,
                 bottom: 0,
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "$percentage%", // Display the percentage value
+                    "${percentage.toStringAsFixed(2)}%", // Display the percentage value with 2 decimal places we can replace 2 with  any num we want
                     textAlign: TextAlign.right,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,

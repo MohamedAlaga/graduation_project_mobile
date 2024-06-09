@@ -1,23 +1,24 @@
-import 'package:aabkr/views/components/common/setting_dialoge.dart';
 import 'package:flutter/material.dart';
 
 class MainButton extends StatelessWidget {
-     MainButton(
+  MainButton(
       {super.key,
       required this.title,
       this.padd = 20.0,
       this.bcolor = const Color(0xFF1FCC7B),
       this.fcolor = Colors.white,
-      required this.onpress });
+      required this.onpress});
   final String title;
   final double padd;
   final Color bcolor;
   final Color fcolor;
-   Function onpress;
+  Function onpress;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){ onpress();},
+      onTap: () {
+        onpress();
+      },
       child: Container(
         decoration: BoxDecoration(
             color: bcolor,
@@ -31,9 +32,10 @@ class MainButton extends StatelessWidget {
             border: Border.all(color: Colors.black, width: 2.0)),
         child: Padding(
           padding: EdgeInsets.only(right: padd, left: padd),
-          child: Text(textAlign: TextAlign.center,
+          child: Text(
+            textAlign: TextAlign.center,
             title,
-            style:  TextStyle(
+            style: TextStyle(
               fontFamily: "OMNES-ARABIC",
               color: fcolor,
               fontSize: 32,
@@ -44,8 +46,6 @@ class MainButton extends StatelessWidget {
       ),
     );
   }
-
 }
 
-class requied {
-}
+class requied {}

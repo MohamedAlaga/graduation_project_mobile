@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
         title: 'aabkar',
         theme: ThemeData(
           useMaterial3: true,
-        ),debugShowCheckedModeBanner: false,
+        ),
+        debugShowCheckedModeBanner: false,
         home: Page3());
   }
 }

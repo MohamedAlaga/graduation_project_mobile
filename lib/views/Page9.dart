@@ -1,3 +1,4 @@
+import 'package:aabkr/controllers/user_info.dart';
 import 'package:aabkr/views/commonComponents/core/utils/constants.dart';
 import 'package:aabkr/views/commonComponents/omnes_text.dart';
 import 'package:aabkr/views/components/common/S_Text.dart';
@@ -6,7 +7,6 @@ import 'package:aabkr/views/components/common/buttons.dart';
 import 'package:aabkr/views/components/common/common_text.dart';
 import 'package:aabkr/views/components/common/my_text_filed.dart';
 import 'package:aabkr/views/components/common/password_TextFiled.dart';
-import 'package:aabkr/views/page3/page3_screen.dart';
 import 'package:flutter/material.dart';
 
 class information extends StatelessWidget {
@@ -17,6 +17,15 @@ class information extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
+  @override
+  void dispose() {
+    _fatherNameController.dispose();
+    _geniusNameController.dispose();
+    _geniusAgeController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _phoneController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +33,7 @@ class information extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 255, 250, 237),
       body: SafeArea(
         child: SingleChildScrollView(
-          child:  SizedBox(
+          child: SizedBox(
             width: double.infinity,
             child: Column(
               children: [
@@ -84,6 +93,15 @@ class information extends StatelessWidget {
                     bText: 'انشاء حساب جديد',
                     bcolor: const Color.fromRGBO(31, 204, 123, 1),
                     b_fun: () {
+                      register(
+                        context: context,
+                        email: _emailController.text,
+                        fatherName: _fatherNameController.text,
+                        geniusAge: _geniusAgeController.text,
+                        geniusName: _geniusNameController.text,
+                        password: _passwordController.text,
+                        phone: _phoneController.text,
+                      );
                     },
                     bF_Text: 32,
                     bHieght: 56,
@@ -94,13 +112,15 @@ class information extends StatelessWidget {
                 const SizedBox(
                   height: 40,
                 ),
-                 Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                              onTap: () {Navigator.pop(context);},
-                              child: const OmnesText(
-                                  text: 'تسجيل الدخول', color: mainGreen)),
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: const OmnesText(
+                            text: 'تسجيل الدخول', color: mainGreen)),
                     const stork_text(
                       Y_offdet: 4,
                       w_sized: FontWeight.w600,
