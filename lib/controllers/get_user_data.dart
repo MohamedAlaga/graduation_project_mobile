@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:aabkr/env_globals.dart';
 import 'package:http/http.dart' as http;
 
 /// Retrieves user data using the provided token.
@@ -18,7 +19,7 @@ getUserDate(String token) async {
   try{
     var userData = await http.get(
       Uri.parse(
-        'http://10.0.2.2:8000/api/user/getaccount',
+        '$domainName/api/user/getaccount',
       ),
       headers: <String, String>{
         'User-Agent': 'mobileApp',

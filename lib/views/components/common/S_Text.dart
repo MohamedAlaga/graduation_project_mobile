@@ -39,7 +39,7 @@ class stork_text extends StatelessWidget {
           ffamily: sfamily,
           fsized: sT_Sized,
           fcolor: s_ctext,
-          w_font: FontWeight.w600,
+          w_font: w_sized,
         )
       ],
     );

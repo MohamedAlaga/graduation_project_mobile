@@ -97,7 +97,7 @@ class _QuizPageState extends State<QuizPage> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      appBar: quizAppBar(),
+      appBar: quizAppBar(context),
       backgroundColor: mainPageColor,
       body: SingleChildScrollView(
         child: Column(
@@ -183,7 +183,7 @@ class _QuizPageState extends State<QuizPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CommonSmallerButton(buttonColor: mainRed, text: 'الغاء'),
+                  CommonSmallerButton(buttonColor: mainRed, text: 'الغاء' ,fun:(){Navigator.pop(context);}),
                   CommonSmallerButton(
                     buttonColor: mainBlue,
                     text: 'انهاء',

@@ -1,8 +1,9 @@
 import 'dart:convert';
-
+import 'package:aabkr/env_globals.dart';
 import 'package:aabkr/views/components/common/proggress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProgressScreen extends StatefulWidget {
   @override
@@ -10,10 +11,7 @@ class ProgressScreen extends StatefulWidget {
 }
 
 class _ProgressScreenState extends State<ProgressScreen> {
-  final int ID_user = 1;
-  final String token =
-      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzE3OTMwODgxLCJleHAiOjE3MTc5MzQ0ODEsIm5iZiI6MTcxNzkzMDg4MSwianRpIjoiRUd5WmlOOHV4S0xCQVlnbCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.BFM1bedWOfKqL1O6XCz8g8AftlDHhPOgb-0PL0FRTas"; // Replace with your actual token
-
+  final int idUser = 1;
   double progress = 0.0;
 
   @override
@@ -23,36 +21,27 @@ class _ProgressScreenState extends State<ProgressScreen> {
   }
 
   Future<void> fetchProgress() async {
-    final url = 'http://10.0.2.2:8000/api/progress/$ID_user';
+    var prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('token');
+    final url = '$domainName/api/progress/$idUser';
     final headers = {
       'Authorization': 'Bearer $token',
       'Content-Type': 'application/json',
     };
-
-    print('Making request to: $url');
-    print('Authorization header: ${headers['Authorization']}');
-
     try {
       final response = await http.get(
         Uri.parse(url),
         headers: headers,
       );
-
-      print('Response status: ${response.statusCode}');
-      print('Response body: ${response.body}');
-
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         setState(() {
-          progress = data['data']['progress'];
+          progress = double.parse(data['data']['progress'].toString());
         });
       } else {
-        // Log the error response body
-        print('Error response: ${response.body}');
         throw Exception('Failed to load progress: ${response.statusCode}');
       }
     } catch (e) {
-      print('Error: $e');
       throw Exception('Failed to load progress');
     }
   }

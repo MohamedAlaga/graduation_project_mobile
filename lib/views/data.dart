@@ -3,12 +3,15 @@ class Video {
   final String title;
   final String thumbnailUrl;
   final String description;
+  final String dbId;
 
   Video(
       {required this.id,
       required this.title,
       required this.thumbnailUrl,
-      required this.description});
+      required this.description,
+      required this.dbId
+      });
 }
 
 //كود اللي كأنه شافه 

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 
 import '../../commonComponents/core/utils/constants.dart';
 import '../../commonComponents/core/utils/size_config.dart';
 import '../../commonComponents/galaxy_text.dart';
-AppBar quizAppBar() {
+AppBar quizAppBar( BuildContext context) {
   return AppBar(toolbarHeight: 55,
     title: const Center(child: Center(child: GalaxyText(fontSize: 32, text: 'لا  تتوتر'))),
     backgroundColor: mainPageColor,
@@ -16,7 +17,7 @@ AppBar quizAppBar() {
     ],
     leading: Center(
       child: InkWell(
-          onTap: () {},
+          onTap: () {Navigator.pop(context);},
           child:SvgPicture.asset('assets/pics/arrow_back.svg')),
     ),
 

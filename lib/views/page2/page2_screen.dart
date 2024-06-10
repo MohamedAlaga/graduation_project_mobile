@@ -1,6 +1,8 @@
 import 'package:aabkr/views/commonComponents/common_button.dart';
 import 'package:aabkr/views/commonComponents/core/utils/constants.dart';
 import 'package:aabkr/views/commonComponents/galaxy_text.dart';
+import 'package:aabkr/views/page11.dart';
+import 'package:aabkr/views/page7/page7_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../commonComponents/core/utils/size_config.dart';
@@ -41,7 +43,7 @@ class Page2 extends StatelessWidget {
                     Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Page3(),
+                          builder: (context) => const Page7(),
                         ),
                         (route) => false);
                   },
@@ -53,7 +55,7 @@ class Page2 extends StatelessWidget {
                 child: CommonButton(
                   buttonColor: mainRed,
                   text: '13 - 18',
-                  fun: () {},
+                  fun: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const Page11(),));},
                 )),
           ],
         ),

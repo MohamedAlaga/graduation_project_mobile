@@ -1,20 +1,23 @@
+import 'package:aabkr/views/Page12.dart';
+import 'package:aabkr/views/Page32.dart';
 import 'package:aabkr/views/components/common/buttons.dart';
 import 'package:aabkr/views/components/common/common_text.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-import 'Page9.dart';
 
 class conentv extends StatelessWidget {
   const conentv(
       {super.key,
       required this.videoId,
       required this.videoTitle,
-      required this.videoDis});
+      required this.videoDis,
+      required this.videoDbId});
 
   final String videoId;
   final String videoTitle;
   final String videoDis;
+  final String videoDbId;
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +99,7 @@ class conentv extends StatelessWidget {
                     bText: 'السابق',
                     bcolor: Color.fromARGB(255, 255, 95, 132),
                     b_fun: () {
-                      Navigator.maybePop(context);
+                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const V_List(),), (route) => false);
                     },
                     bF_Text: 32,
                     bHieght: 48,
@@ -110,10 +113,7 @@ class conentv extends StatelessWidget {
                     bText: 'التالي',
                     bcolor: Color.fromRGBO(31, 204, 123, 1),
                     b_fun: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => information()),
-                      );
+                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>  Lmore(content: videoDis,currentVideoId: videoDbId),), (route) => false);
                     },
                     bF_Text: 32,
                     bHieght: 48,

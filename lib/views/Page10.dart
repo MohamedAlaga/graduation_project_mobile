@@ -1,4 +1,5 @@
 import 'package:aabkr/controllers/checkPass.dart';
+import 'package:aabkr/controllers/inroll_to_course.dart';
 import 'package:aabkr/views/Page12.dart';
 import 'package:aabkr/views/Page23.dart';
 import 'package:aabkr/views/Page9.dart';
@@ -230,11 +231,21 @@ class computer extends StatelessWidget {
                   button(
                     bText: ' التالي   ',
                     bcolor: const Color.fromRGBO(31, 204, 123, 1),
-                    b_fun: () {
+                    b_fun: () async{
+                      var inroll = await inrollToCourse();
+                      if(inroll == 1){
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => V_List()),
-                      );
+                      );} else {
+                        AwesomeDialog(
+                            context: context,
+                            dialogType: DialogType.error,
+                            animType: AnimType.topSlide,
+                            title: "حدث خطأ ما، يرجى المحاولة مرة أخرى",
+                            btnOkText: "حسنا",
+                            btnOkOnPress: (){}
+                        ).show();}
                     },
                     bF_Text: 32,
                     bHieght: 48,

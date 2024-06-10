@@ -8,7 +8,9 @@ import 'package:aabkr/views/commonComponents/divider.dart';
 import 'package:aabkr/views/commonComponents/galaxy_text.dart';
 import 'package:aabkr/views/commonComponents/google_facebook_container.dart';
 import 'package:aabkr/views/commonComponents/omnes_text.dart';
+import 'package:aabkr/views/page2/page2_screen.dart';
 import 'package:aabkr/views/page4.dart';
+import 'package:aabkr/views/page7/page7_screen.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -141,7 +143,7 @@ class Page3 extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       GestureDetector(
-                          onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => (information())));},
+                          onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => (const Page2())));},
                           child: const OmnesText(
                               text: ' انشاء حساب جديد', color: mainGreen)),
                       const SizedBox(

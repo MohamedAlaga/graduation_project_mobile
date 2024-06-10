@@ -10,12 +10,14 @@ class button extends StatelessWidget {
     required this.bcolor,
     required this.bF_Text,
     required this.b_fun,
+    this.fcolor = Colors.white,
     super.key,
   });
   final double bWidth;
   final double b_border;
   final String bText;
   final Color bcolor;
+  final Color fcolor ;
 
   final double bF_Text;
   final double bHieght;
@@ -45,7 +47,7 @@ class button extends StatelessWidget {
                 text: bText,
                 ffamily: 'OMNES-ARABIC',
                 fsized: bF_Text,
-                fcolor: Colors.white),
+                fcolor: fcolor),
           )),
     );
   }

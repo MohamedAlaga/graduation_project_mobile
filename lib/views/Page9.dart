@@ -7,6 +7,7 @@ import 'package:aabkr/views/components/common/buttons.dart';
 import 'package:aabkr/views/components/common/common_text.dart';
 import 'package:aabkr/views/components/common/my_text_filed.dart';
 import 'package:aabkr/views/components/common/password_TextFiled.dart';
+import 'package:aabkr/views/page3/page3_screen.dart';
 import 'package:flutter/material.dart';
 
 class information extends StatelessWidget {
@@ -117,7 +118,7 @@ class information extends StatelessWidget {
                   children: [
                     GestureDetector(
                         onTap: () {
-                          Navigator.pop(context);
+                          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Page3(),), (route) => false);
                         },
                         child: const OmnesText(
                             text: 'تسجيل الدخول', color: mainGreen)),

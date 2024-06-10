@@ -1,3 +1,4 @@
+import 'package:aabkr/env_globals.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -22,7 +23,7 @@ import 'dart:convert';
 updateUserPersonalData(String name, String email, String phone,
     String fatherName, String age, String token) async {
   try {
-    var response = await http.post(Uri.parse('http://10.0.2.2:8000/api/user/update'),
+    var response = await http.post(Uri.parse('$domainName/api/user/update'),
         body: jsonEncode(<String, String>{
           'name': name,
           'email': email,

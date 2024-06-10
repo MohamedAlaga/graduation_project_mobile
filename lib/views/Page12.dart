@@ -1,6 +1,7 @@
 import 'package:aabkr/controllers/calculate_progress_bar.dart';
 import 'package:aabkr/controllers/checkPass.dart';
 import 'package:aabkr/controllers/corus_info.dart';
+import 'package:aabkr/env_globals.dart';
 import 'package:aabkr/views/Page23.dart';
 import 'package:aabkr/views/components/common/S_Text.dart';
 import 'package:aabkr/views/components/common/common_text.dart';
@@ -147,17 +148,11 @@ class V_List extends StatelessWidget {
                   ),
                 ),
                 VideoListScreen(),
-                const SliverToBoxAdapter(
+                 SliverToBoxAdapter(
                   child: Padding(
-                    padding: EdgeInsets.only(right: 16, left: 16),
-                    child: ConditionalWidget(value: 50),
-                  ),
-                ),
-                const SliverToBoxAdapter(
-                  child: Padding(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                         right: 16, left: 16, top: 16, bottom: 16),
-                    child: FCondition(value: 20),
+                    child: FCondition(value: false ,isEnabled: isAllVideosWatched,),
                   ),
                 ),
               ],

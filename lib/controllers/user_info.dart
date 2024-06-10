@@ -1,3 +1,6 @@
+import 'package:aabkr/env_globals.dart';
+import 'package:aabkr/views/page3/page3_screen.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -11,23 +14,25 @@ Future<void> register({
   required String password,
   required String phone,
 }) async {
-  // التحقق من إدخال جميع الحقول
   if (fatherName.isEmpty ||
       geniusName.isEmpty ||
       geniusAge.isEmpty ||
       email.isEmpty ||
       password.isEmpty ||
       phone.isEmpty) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Please fill in all fields')),
-    );
+    AwesomeDialog(
+      context: context,
+      dialogType: DialogType.warning,
+      animType: AnimType.bottomSlide,
+      desc: 'من فضلك املأ جميع الحقول',
+      btnOkOnPress: () {},
+    ).show();
     return;
   }
 
   try {
-    // إعداد الطلب وإرسال البيانات
     var response = await http.post(
-      Uri.parse('http://10.0.2.2:8000/api/register'), // استبدل بعنوان API الخاص بك
+      Uri.parse('$domainName/api/register'),
       body: jsonEncode(<String, String>{
         'father_name': fatherName,
         'name': geniusName,
@@ -41,37 +46,63 @@ Future<void> register({
       },
     );
 
-    // محاولة فك تشفير استجابة الخادم
     var responseBody;
     try {
       responseBody = jsonDecode(response.body);
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Registration Failed: Invalid response format')),
-      );
+      AwesomeDialog(
+        context: context,
+        dialogType: DialogType.error,
+        animType: AnimType.bottomSlide,
+        desc: 'حدث خطأ غير متوقع: $e',
+        btnOkOnPress: () {},
+      ).show();
       return;
     }
 
     // معالجة استجابة الخادم بناءً على رمز الحالة
     if (response.statusCode == 200) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Registration Successful')),
-      );
+      AwesomeDialog(
+        context: context,
+        dialogType: DialogType.success,
+        animType: AnimType.bottomSlide,
+        desc: 'تم تسجيل الحساب بنجاح',
+        btnOkOnPress: () {
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Page3(),
+              ),
+              (route) => false);
+        },
+      ).show();
     } else {
-      if (responseBody is Map<String, dynamic> && responseBody.containsKey('error')) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Registration Failed: ${responseBody['error']}')),
-        );
+      if (responseBody is Map<String, dynamic> &&
+          responseBody.containsKey('error')) {
+        AwesomeDialog(
+          context: context,
+          dialogType: DialogType.error,
+          animType: AnimType.bottomSlide,
+          desc: 'حدث خطأ غير متوقع: ${responseBody['error']}',
+          btnOkOnPress: () {},
+        ).show();
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Registration Failed: Unexpected error: $responseBody')),
-        );
+        AwesomeDialog(
+          context: context,
+          dialogType: DialogType.error,
+          animType: AnimType.bottomSlide,
+          desc: 'حدث خطأ غير متوقع: $responseBody',
+          btnOkOnPress: () {},
+        ).show();
       }
     }
   } catch (e) {
-    // عرض رسالة خطأ للمستخدم في حالة حدوث استثناء
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Registration Failed: ${e.toString()}')),
-    );
+    AwesomeDialog(
+      context: context,
+      dialogType: DialogType.error,
+      animType: AnimType.bottomSlide,
+      desc: 'حدث خطأ غير متوقع: $e',
+      btnOkOnPress: () {},
+    ).show();
   }
 }

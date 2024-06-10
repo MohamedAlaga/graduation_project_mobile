@@ -2,6 +2,7 @@ import 'package:aabkr/controllers/controllers/controllers.dart';
 import 'package:aabkr/model/quiz_model.dart';
 import 'package:aabkr/views/components/common/buttons.dart';
 import 'package:aabkr/views/components/common/common_text.dart';
+import 'package:aabkr/views/page15.dart';
 import 'package:aabkr/views/quizPage/quiz_page.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,18 +25,7 @@ class finB_tam extends StatelessWidget {
                 bText: 'الاختبار النهائي 🤔',
                 bcolor: Color.fromARGB(255, 255, 210, 0),
                 b_fun: () async {
-                  var prefs = await SharedPreferences.getInstance();
-                  String token = prefs.getString('token').toString();
-                  List<QuizQuestion> test = await createTest(token);
-                  print(test[0].questionText);
-                  print(test[1].questionText);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => QuizPage(
-                              quizQuestions: test,
-                            )),
-                  );
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Page15(),));
                 },
                 bF_Text: 28),
             Positioned(
@@ -115,9 +105,10 @@ class finB_msht extends StatelessWidget {
 }
 
 class FCondition extends StatelessWidget {
-  final double? value;
+  final bool value;
+  final bool isEnabled;
 
-  const FCondition({required this.value});
+  const FCondition({required this.value, required this.isEnabled});
 
   @override
   Widget build(BuildContext context) {

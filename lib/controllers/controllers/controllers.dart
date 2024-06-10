@@ -79,6 +79,7 @@ saveTest(List <QuizQuestion> stored ,String token) async {
           },
         );
         if (redirectResponse.statusCode == 200) {
+          print(jsonDecode(redirectResponse.body));
           return 1;
         } else {
           return 0;

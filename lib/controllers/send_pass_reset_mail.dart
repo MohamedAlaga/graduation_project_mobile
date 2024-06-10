@@ -1,3 +1,4 @@
+import 'package:aabkr/env_globals.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -16,7 +17,7 @@ import 'dart:convert';
   try {
     var response = await http.post(
       Uri.parse(
-        'http://10.0.2.2:8000/api/forget-password',
+        '$domainName/api/forget-password',
       ),
       body: jsonEncode(<String, String>{
         'email': mail,

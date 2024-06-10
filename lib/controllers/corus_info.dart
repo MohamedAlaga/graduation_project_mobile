@@ -1,62 +1,16 @@
 import 'dart:convert';
 
+import 'package:aabkr/env_globals.dart';
 import 'package:aabkr/views/data.dart';
 import 'package:aabkr/views/video-card.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class VideoListScreen extends StatefulWidget {
   @override
   _VideoListScreenState createState() => _VideoListScreenState();
 }
-
-class _VideoListScreenState extends State<VideoListScreen> {
-  final int ID_course = 1;
-
-  final String token =
-      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzE3OTMwODgxLCJleHAiOjE3MTc5MzQ0ODEsIm5iZiI6MTcxNzkzMDg4MSwianRpIjoiRUd5WmlOOHV4S0xCQVlnbCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.BFM1bedWOfKqL1O6XCz8g8AftlDHhPOgb-0PL0FRTas"; // Replace with your actual token
-
-  List<dynamic> videos = [];
-
-  @override
-  void initState() {
-    super.initState();
-    fetchVideos();
-  }
-
-  Future<void> fetchVideos() async {
-    final url = 'http://10.0.2.2:8000/api/courses/$ID_course/videos';
-    final headers = {
-      'Authorization': 'Bearer $token',
-      'Content-Type': 'application/json',
-    };
-
-    print('Making request to: $url');
-    print('Authorization header: ${headers['Authorization']}');
-
-    try {
-      final response = await http.get(
-        Uri.parse(url),
-        headers: headers,
-      );
-
-      print('Response status: ${response.statusCode}');
-      print('Response body: ${response.body}');
-
-      if (response.statusCode == 200) {
-        final data = json.decode(response.body);
-        setState(() {
-          videos = data['data'][0];
-        });
-      } else {
-        print('Error response: ${response.body}');
-        throw Exception('Failed to load videos: ${response.statusCode}');
-      }
-    } catch (e) {
-      print('Error: $e');
-      throw Exception('Failed to load videos');
-    }
-  }
 
   String extractVideoId(String url) {
     final Uri uri = Uri.parse(url);
@@ -69,28 +23,73 @@ class _VideoListScreenState extends State<VideoListScreen> {
   String getThumbnailUrl(String videoId) {
     return 'https://img.youtube.com/vi/$videoId/0.jpg';
   }
+class _VideoListScreenState extends State<VideoListScreen> {
+  final int ID_course = 1;
+  int watched = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchVideos();
+  }
+
+  Future<void> fetchVideos() async {
+    var prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('token');
+    final url = '$domainName/api/courses/$ID_course/videos';
+    final headers = {
+      'Authorization': 'Bearer $token',
+      'Content-Type': 'application/json',
+    };
+    try {
+      final response = await http.get(
+        Uri.parse(url),
+        headers: headers,
+      );
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        setState(() {
+          allSystemVideos = data['data'][0];
+        });
+        watched = data['data'][1].length;
+        if (watched >= allSystemVideos.length) {
+          isAllVideosWatched = true;
+        }
+        watched++;
+      } else {
+        throw Exception('Failed to load videos: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception('Failed to load videos');
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
-    return videos.isEmpty
+    return allSystemVideos.isEmpty
         ? SliverToBoxAdapter(child: Center(child: CircularProgressIndicator()))
         : SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
-                final video = videos[index];
+                final video = allSystemVideos[index];
                 final videoId = extractVideoId(video['url']);
                 final thumbnailUrl = getThumbnailUrl(videoId);
+                final isEnabled = index < watched;
+
                 return videoCard(
                   video: Video(
                     id: videoId,
                     title: video['title'],
                     description: video['description'],
                     thumbnailUrl: thumbnailUrl,
+                    dbId: video['id'].toString(),
                   ),
                   vindex: index,
+                  isEnabled: isEnabled,
                 );
               },
-              childCount: videos.length,
+              childCount: allSystemVideos.length,
             ),
           );
   }

@@ -33,10 +33,8 @@ checkPassController(String password) async {
       return -1;
     }
     if (responseBody['success'] == true) {
-      print(true);
       return 1;
     } else if (responseBody['success'] == false) {
-      print(false);
       return 0;
     } else {
       return -1;

@@ -1,9 +1,9 @@
-#Sun Jun 09 14:02:50 EEST 2024
-base.0=C\:\\Users\\Ramiah\\Desktop\\zip\\graduation_project_mobile\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=C\:\\Users\\Ramiah\\Desktop\\zip\\graduation_project_mobile\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
-base.2=C\:\\Users\\Ramiah\\Desktop\\zip\\graduation_project_mobile\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.3=C\:\\Users\\Ramiah\\Desktop\\zip\\graduation_project_mobile\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
-base.4=C\:\\Users\\Ramiah\\Desktop\\zip\\graduation_project_mobile\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\9\\classes.dex
+#Mon Jun 10 06:00:19 EET 2024
+base.0=D\:\\graduation project\\graduation_project_mobile\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=D\:\\graduation project\\graduation_project_mobile\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
+base.2=D\:\\graduation project\\graduation_project_mobile\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.3=D\:\\graduation project\\graduation_project_mobile\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
+base.4=D\:\\graduation project\\graduation_project_mobile\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\9\\classes.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=0/classes.dex

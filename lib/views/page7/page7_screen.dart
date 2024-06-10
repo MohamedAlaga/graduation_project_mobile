@@ -1,5 +1,7 @@
+import 'package:aabkr/views/Page8.dart';
 import 'package:aabkr/views/commonComponents/core/utils/size_config.dart';
 import 'package:aabkr/views/page27/page27_screen.dart';
+import 'package:aabkr/views/page3/page3_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -39,7 +41,7 @@ class Page7 extends StatelessWidget {
               right: 53,
               left: 53,
               child: CommonButton(fun: (){
-                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder:(context) => const Page27(),), (route) => false);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
               },
                   buttonColor: mainGreen, text: 'انشاء حساب جديد')),
           Positioned(
@@ -49,7 +51,7 @@ class Page7 extends StatelessWidget {
               child: Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                  GestureDetector(
-                      onTap: () {  },
+                      onTap: () {Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder:(context) => Page3(),), (route) => false);},
                       child: const OmnesText(text: ' تــــســــــجـــيــــل الـــدخــــول',color:mainGreen)),
                   const SizedBox(width: 5,),
                   const OmnesText(text: ' لديك حساب ؟',color: Colors.white)

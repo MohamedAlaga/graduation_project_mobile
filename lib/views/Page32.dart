@@ -1,13 +1,24 @@
+import 'package:aabkr/controllers/corus_info.dart';
+import 'package:aabkr/controllers/get_next_video_id.dart';
+import 'package:aabkr/env_globals.dart';
+import 'package:aabkr/views/Page12.dart';
+import 'package:aabkr/views/Page13.dart';
 import 'package:aabkr/views/Page9.dart';
 import 'package:aabkr/views/components/common/S_Text.dart';
 import 'package:aabkr/views/components/common/buttons.dart';
 import 'package:aabkr/views/components/common/common_text.dart';
 import 'package:aabkr/views/components/common/png_button.dart';
 import 'package:aabkr/views/components/common/s_image.dart';
+import 'package:aabkr/views/data.dart';
+import 'package:aabkr/views/video-card.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Lmore extends StatelessWidget {
-  const Lmore({Key? key});
+  final String content;
+  final String currentVideoId;
+  const Lmore({Key? key, required this.content, required this.currentVideoId})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +36,14 @@ class Lmore extends StatelessWidget {
                 children: [
                   PNG_button(
                     png_Logo: 'arrow_back .png',
-                    func: (){Navigator.pop(context);},
+                    func: () {
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const V_List(),
+                          ),
+                          (route) => false);
+                    },
                   ),
                   const SizedBox(
                     width: 38,
@@ -52,53 +70,10 @@ class Lmore extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 children: [
                   Column(
-                    children: [
-                      const C_Text(
+                    children: [SizedBox(height: 20,),
+                      C_Text(
                           w_font: FontWeight.w600,
-                          text:
-                              'الذكاء الصطناعي و تعلم الآلة🤖:تقدمت تقنيات الذكاء الاصطناعي بشكل كبير،حيث يستخدم التعلم الآلي في تطبيقات متنوعة ،من التشخيص الطبي الي تطوير السيارات الذاتية القيادة.',
-                          ffamily: 'OMNES-ARABIC',
-                          fsized: 20,
-                          fcolor: Colors.black),
-                      const C_Text(
-                          w_font: FontWeight.w600,
-                          text:
-                              'تكنولوجيا الاتصالات و الجيل الخماس 📡:شهدت تكنولوجيا الاتصالات تقدما سريعا،حيث يعد الجيل الخامس من شبكات الجوال خطوة ضخمة نحو سرعات أعلى و اتصال أكثر استقرارا.',
-                          ffamily: 'OMNES-ARABIC',
-                          fsized: 20,
-                          fcolor: Colors.black),
-                      const C_Text(
-                          w_font: FontWeight.w600,
-                          text:
-                              'الواقع الافتراضي و الواقع المعزز🕶️:أصبحت تقنيات الواقع الافتراضي و الواقع المعزز تحول تجاربنا اليومية،سواء في مجال الترفيةأو التعليم.',
-                          fsized: 20,
-                          ffamily: 'OMNES-ARABIC',
-                          fcolor: Colors.black),
-                      const C_Text(
-                          w_font: FontWeight.w600,
-                          text:
-                              'تطور الحوسبة الكموميه💻🔍:تعد الحسوبة الكمومية قفقزة هائلة في مجال الحوسبة،حيث تتيح لنا معالجة المعلومات بشكل ممتاز.',
-                          ffamily: 'OMNES-ARABIC',
-                          fcolor: Colors.black,
-                          fsized: 20),
-                      const C_Text(
-                          w_font: FontWeight.w600,
-                          text:
-                              'كما ان الاتجاه العام في العالم الحالي هو تعليم البرمجه للأطفال في سن صغير لكي يصبح متمكن منها جيدا.',
-                          ffamily: 'OMNES-ARABIC',
-                          fsized: 20,
-                          fcolor: Colors.black),
-                      const C_Text(
-                          w_font: FontWeight.w600,
-                          text:
-                              'كما ان السيد الرئيس وجه كلمته مشكورا الي الحكومه بضروره الاهتمام بالجانب الحوسبي و قد قتم سيادته بالعديدمن الزيارات لابنلئنا الطلاب في جميع المراحل العمريه للتنويه علي مدي اهميه الموضوع ولذلك له جزيل الشكر و التقدير.',
-                          ffamily: 'OMNES-ARABIC',
-                          fsized: 20,
-                          fcolor: Colors.black),
-                      const C_Text(
-                          w_font: FontWeight.w600,
-                          text:
-                              'كما و قام الدكتر احمد العشري بالكثير من الابحاث و المجهود لكي يوضح لابنائه الطلبه مدي اهميه الموضوع و لديه له منا كل تقجير و الاحترام فهو كالاب قبل المعلم.',
+                          text: content,
                           ffamily: 'OMNES-ARABIC',
                           fsized: 20,
                           fcolor: Colors.black),
@@ -106,7 +81,7 @@ class Lmore extends StatelessWidget {
                         height: 22,
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(left: 16, right: 68),
@@ -117,17 +92,16 @@ class Lmore extends StatelessWidget {
                                 bText: 'السابق',
                                 bcolor: Color.fromARGB(255, 255, 95, 132),
                                 b_fun: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => information()),
-                                  );
+                                  Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => const V_List(),
+                                      ),
+                                      (route) => false);
                                 },
                                 bF_Text: 32),
                           ),
-                          const SizedBox(
-                            width: 25,
-                          ),
+                          
                           button(
                               b_border: 14,
                               bHieght: 48,
@@ -135,11 +109,14 @@ class Lmore extends StatelessWidget {
                               bText: 'التالي',
                               bcolor: Color.fromARGB(255, 31, 204, 123),
                               b_fun: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => information()),
-                                );
+                                var tempVideo = allSystemVideos[
+                                    getNextVideoIndex(currentVideoId)];
+                                watchVideo(
+                                    tempVideo["id"].toString(),
+                                    extractVideoId(tempVideo['url']),
+                                    tempVideo["title"],
+                                    tempVideo["description"],
+                                    context);
                               },
                               bF_Text: 32)
                         ],
