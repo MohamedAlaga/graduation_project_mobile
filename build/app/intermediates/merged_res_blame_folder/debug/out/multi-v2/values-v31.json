@@ -1,0 +1,28 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.aabkr.app-mergeDebugResources-26:/values-v31/values-v31.xml",
+            "map": [
+                {
+                    "source": "D:\\graduation project\\myProjectAddons\\graduation_project_mobile\\android\\app\\src\\main\\res\\values-v31\\styles.xml",
+                    "from": {
+                        "startLines": "3,15",
+                        "startColumns": "4,4",
+                        "startOffsets": "176,909",
+                        "endLines": "8,17",
+                        "endColumns": "12,12",
+                        "endOffsets": "551,1075"
+                    },
+                    "to": {
+                        "startLines": "2,8",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,430",
+                        "endLines": "7,10",
+                        "endColumns": "12,12",
+                        "endOffsets": "425,594"
+                    }
+                }
+            ]
+        }
+    ]
+}

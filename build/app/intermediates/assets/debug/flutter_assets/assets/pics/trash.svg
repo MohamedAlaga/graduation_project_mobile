@@ -1,0 +1,14 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="mdi:delete-circle">
+<g clip-path="url(#clip0_1664_556)">
+<rect id="Rectangle 114" x="2" y="2" width="43" height="45" rx="21.5" fill="black"/>
+<path id="Vector" d="M24 0C37.272 0 48 10.728 48 24C48 37.272 37.272 48 24 48C10.728 48 0 37.272 0 24C0 10.728 10.728 0 24 0ZM36 12H30L27.6 9.6H20.4L18 12H12V16.8H36V12ZM16.8 38.4H31.2C31.8365 38.4 32.447 38.1471 32.8971 37.6971C33.3471 37.247 33.6 36.6365 33.6 36V19.2H14.4V36C14.4 36.6365 14.6529 37.247 15.1029 37.6971C15.553 38.1471 16.1635 38.4 16.8 38.4Z" fill="#FF5F84"/>
+</g>
+<rect x="1" y="1" width="46" height="46" rx="23" stroke="black" stroke-width="2"/>
+</g>
+<defs>
+<clipPath id="clip0_1664_556">
+<rect width="48" height="48" rx="24" fill="white"/>
+</clipPath>
+</defs>
+</svg>
