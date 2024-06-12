@@ -6,3 +6,4 @@ bool isAllVideosWatched = false;
 List<QuizQuestion> allQuestions = [];
 List<QuizQuestion> answerdQuiz = [];
 double percentage = 0;
+String userFullName = "";

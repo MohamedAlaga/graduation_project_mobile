@@ -40,12 +40,9 @@ class Page2 extends StatelessWidget {
                   buttonColor: mainGreen,
                   text: '6 - 12',
                   fun: () {
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
+                    Navigator.push(context, MaterialPageRoute(
                           builder: (context) => const Page7(),
-                        ),
-                        (route) => false);
+                        ));
                   },
                 )),
             Positioned(

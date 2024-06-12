@@ -79,12 +79,14 @@ class conentv extends StatelessWidget {
                       right: 16,
                       child: Align(
                           alignment: Alignment.topRight,
-                          child: C_Text(
-                              w_font: FontWeight.w600,
-                              text: videoDis,
-                              ffamily: 'OMNES-ARABIC',
-                              fsized: 18,
-                              fcolor: Colors.black)),
+                          child: SingleChildScrollView(
+                            child: C_Text(
+                                w_font: FontWeight.w600,
+                                text: videoDis,
+                                ffamily: 'OMNES-ARABIC',
+                                fsized: 18,
+                                fcolor: Colors.black),
+                          )),
                     ),
                   ],
                 ),

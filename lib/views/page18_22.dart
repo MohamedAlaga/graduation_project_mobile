@@ -11,6 +11,7 @@ import 'package:aabkr/views/page27/page27_screen.dart';
 import 'package:aabkr/views/quizAnswersPage/quiz_answers_page.dart';
 import 'package:aabkr/views/quizPage/quiz_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Page18 extends StatefulWidget {
@@ -45,56 +46,86 @@ class _Page18State extends State<Page18> {
     }
     return Scaffold(
       appBar: AppBar(
+        bottom: PreferredSize(
+            preferredSize: Size.fromHeight(25.0),
+            child: Image.asset(
+              'assets/pics/app_bar_line.png',
+              fit: BoxFit.fill,
+              width: double.infinity,
+            )),
+        centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 255, 250, 237),
-        title: const Center(child: HeadlineText(title: "نتيجه الاختبار")),
+        surfaceTintColor: Colors.transparent,
+        elevation: 10,
+        title: const HeadlineText(title: "نتيجه الاختبار"),
+        leading: Center(
+          child: InkWell(
+              onTap: () {
+                Navigator.maybePop(context);
+              },
+              child: SvgPicture.asset(
+                'assets/pics/arrow_back.svg',
+                fit: BoxFit.scaleDown,
+              )),
+        ),
       ),
       backgroundColor: const Color.fromARGB(255, 255, 250, 237),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
-            const WavedLine(),
-            const SizedBox(height: 32),
-            FaceWidget(facePath: paths.keys.elementAt(index)),
-            const SizedBox(height: 20),
-            ParagrahpText(txt: paths.values.elementAt(index), size: 36),
-            const SizedBox(height: 5),
-            HeadlineText(
-              title: "${widget.grade.toStringAsFixed(1)}%",
-              fsize: 96,
-            ),
-            MainButton(
-              title: "شهادة المستوى",
-              bcolor: Color(0xFF00DCEA),
-              onpress: () async{
-                String Usrname = await getUserCertName();
-                Navigator.push(context, MaterialPageRoute(builder: (context) =>  Page27(name: Usrname),));},
-            ),
-            const SizedBox(height: 24),
-            MainButton(
-              title: "مراجعة اجاباتك",
-              onpress: () {for(QuizQuestion quest in answerdQuiz){print("q : ${quest.questionText} + A1 id : ${quest.answerOneId} -- A1 correct : ${quest.answerOneIsCorrect} + A1 id : ${quest.answerTwoId} -- A1 correct : ${quest.answerTwoIsCorrect}+ A1 id : ${quest.answerThreeId} -- A1 correct : ${quest.answerThreeIsCorrect} + userAnswer : ${quest.userSelectedAnswerId}");};
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          QuizAnswersPage(quizQuestions: answerdQuiz),
-                    ));
-              },
-              padd: 25,
-            ),
-            const SizedBox(height: 24),
-            MainButton(
-                title: "إعادة الاختبار",
-                bcolor: Color(0xFFFF5F84),
-                onpress: () async{
-                  var pref = await SharedPreferences.getInstance();
-                  createTest(pref.getString('token').toString());
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => QuizPage(quizQuestions: allQuestions),));
+        child: Center(
+          child: Column(
+            children: [
+              const SizedBox(height: 32),
+              FaceWidget(facePath: paths.keys.elementAt(index)),
+              const SizedBox(height: 20),
+              ParagrahpText(txt: paths.values.elementAt(index), size: 36),
+              const SizedBox(height: 5),
+              HeadlineText(
+                title: "${widget.grade.toStringAsFixed(1)}%",
+                fsize: 96,
+              ),
+              MainButton(
+                title: "شهادة المستوى",
+                bcolor: Color(0xFF00DCEA),
+                onpress: () async {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Page27(name: userFullName),
+                      ));
+                },
+              ),
+              const SizedBox(height: 24),
+              MainButton(
+                title: "مراجعة اجاباتك",
+                onpress: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            QuizAnswersPage(quizQuestions: answerdQuiz),
+                      ));
+                },
+                padd: 25,
+              ),
+              const SizedBox(height: 24),
+              MainButton(
+                  title: "إعادة الاختبار",
+                  bcolor: Color(0xFFFF5F84),
+                  onpress: () async {
+                    var pref = await SharedPreferences.getInstance();
+                    createTest(pref.getString('token').toString());
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              QuizPage(quizQuestions: allQuestions),
+                        ));
                   },
-                padd: 35),
-            const SizedBox(height: 24),
-          ],
+                  padd: 35),
+              const SizedBox(height: 24),
+            ],
+          ),
         ),
       ),
     );

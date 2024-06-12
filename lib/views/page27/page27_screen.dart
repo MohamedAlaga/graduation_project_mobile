@@ -49,7 +49,6 @@ class Page27 extends StatelessWidget {
         },
       ),
     );
-//style: pw.TextStyle(font: ttf, fontSize: 40)
     await Printing.layoutPdf(
       onLayout: (PdfPageFormat format) async => pdf.save(),
     );
@@ -73,15 +72,16 @@ class Page27 extends StatelessWidget {
         ],
         leading: Center(
           child: InkWell(
-              onTap: () {},
+              onTap: () {Navigator.maybePop(context);},
               child: SvgPicture.asset(
                 'assets/pics/arrow_back.svg',
                 fit: BoxFit.scaleDown,
               )),
         ),
         bottom: PreferredSize(
-            preferredSize: Size.fromHeight(SizeConfig.screenHeight! * 0.04),
-            child: SvgPicture.asset('assets/pics/appBar.svg')),
+          preferredSize: const Size.fromHeight(25.0),
+          child:  Image.asset('assets/pics/app_bar_line.png',fit: BoxFit.fill,width: double.infinity,),
+    ),
       ),
       backgroundColor: mainPageColor,
       body: SafeArea(

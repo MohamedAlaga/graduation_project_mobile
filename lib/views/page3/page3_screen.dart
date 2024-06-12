@@ -7,6 +7,7 @@ import 'package:aabkr/views/commonComponents/divider.dart';
 import 'package:aabkr/views/commonComponents/galaxy_text.dart';
 import 'package:aabkr/views/commonComponents/google_facebook_container.dart';
 import 'package:aabkr/views/commonComponents/omnes_text.dart';
+import 'package:aabkr/views/page11.dart';
 import 'package:aabkr/views/page2/page2_screen.dart';
 import 'package:aabkr/views/page4.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
@@ -74,14 +75,11 @@ class Page3 extends StatelessWidget {
                         if (value == null || value.isEmpty) {
                           return 'كلمة المرور مطلوبة';
                         }
-                        //else if (value.length < 8) {
-                        //  return 'password must be 8 characters or more';}
                       },
                       controller: passwordController)),
               Positioned(
-                top: 450,
+                top: 455,
                 right: 14,
-                left: 200,
                 child: InkWell(onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => Page4()));},
                   child: const Text(
@@ -160,13 +158,17 @@ class Page3 extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      GoogleFacebookContainer(
-                        text: 'فيسبوك',
-                        logo: 'assets/pics/facebook.png',
+                      InkWell(onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const Page11()));},
+                        child: GoogleFacebookContainer(
+                          text: 'فيسبوك',
+                          logo: 'assets/pics/facebook.png',
+                        ),
                       ),
-                      GoogleFacebookContainer(
-                        text: 'جــــوجـل',
-                        logo: 'assets/pics/google.png',
+                      InkWell(onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const Page11()));},
+                        child: GoogleFacebookContainer(
+                          text: 'جــــوجـل',
+                          logo: 'assets/pics/google.png',
+                        ),
                       ),
                     ],
                   )),

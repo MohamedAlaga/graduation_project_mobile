@@ -39,6 +39,7 @@ getUserDate(String token) async {
         'father_name': "father_name",
       });
     }
+    userFullName = "${jsonDecode(userData.body)['name']} ${jsonDecode(userData.body)['father_name']}";
   return userData.body;
 }catch(e){
   return jsonEncode(<String, String>{

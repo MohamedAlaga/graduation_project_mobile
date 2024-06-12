@@ -5,11 +5,12 @@ import '../../commonComponents/core/utils/constants.dart';
 import '../../commonComponents/core/utils/size_config.dart';
 import '../../commonComponents/galaxy_text.dart';
 AppBar quizAppBar( BuildContext context) {
-  return AppBar(toolbarHeight: 55,
+  return AppBar(toolbarHeight: 55,centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 255, 250, 237),
+        surfaceTintColor: Colors.transparent,
+        elevation: 10,
     title: const Center(child: Center(child: GalaxyText(fontSize: 32, text: 'لا  تتوتر'))),
-    backgroundColor: mainPageColor,
     leadingWidth: 50,
-    elevation: 0,
     forceMaterialTransparency: true,
     actions: const [
       SizedBox(width: 45),
@@ -20,8 +21,9 @@ AppBar quizAppBar( BuildContext context) {
           child:SvgPicture.asset('assets/pics/arrow_back.svg')),
     ),
 
-    bottom: PreferredSize(
-        preferredSize: Size.fromHeight(SizeConfig.screenHeight! * 0.04),
-        child: SvgPicture.asset('assets/pics/appBar.svg')),
+    bottom:  PreferredSize(
+          preferredSize: Size.fromHeight(25.0),
+          child:  Image.asset('assets/pics/app_bar_line.png',fit: BoxFit.fill,width: double.infinity,)
+    ),
   );
 }

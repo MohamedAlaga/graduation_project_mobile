@@ -6,20 +6,20 @@
                 {
                     "source": "D:\\graduation project\\myProjectAddons\\graduation_project_mobile\\android\\app\\src\\main\\res\\values-v31\\styles.xml",
                     "from": {
-                        "startLines": "3,15",
+                        "startLines": "3,17",
                         "startColumns": "4,4",
-                        "startOffsets": "176,909",
-                        "endLines": "8,17",
+                        "startOffsets": "173,1052",
+                        "endLines": "10,19",
                         "endColumns": "12,12",
-                        "endOffsets": "551,1075"
+                        "endOffsets": "696,1216"
                     },
                     "to": {
-                        "startLines": "2,8",
+                        "startLines": "2,10",
                         "startColumns": "4,4",
-                        "startOffsets": "55,430",
-                        "endLines": "7,10",
+                        "startOffsets": "55,583",
+                        "endLines": "9,12",
                         "endColumns": "12,12",
-                        "endOffsets": "425,594"
+                        "endOffsets": "578,747"
                     }
                 }
             ]

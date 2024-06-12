@@ -1,4 +1,5 @@
 import 'package:aabkr/controllers/controllers/controllers.dart';
+import 'package:aabkr/controllers/get_user_data.dart';
 import 'package:aabkr/controllers/review_the_test.dart';
 import 'package:aabkr/env_globals.dart';
 import 'package:http/http.dart' as http;
@@ -44,6 +45,7 @@ loginController(String email, String password) async {
       prefs.setString('token', responseBody['access_token']);
       createTest(responseBody['access_token']);
       getQuizAnswer(responseBody['access_token']);
+      getUserDate(responseBody['access_token']);
       return 1;
     } else if (responseBody['error'] == 'Unauthorized') {
       return 0;

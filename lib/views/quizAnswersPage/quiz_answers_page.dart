@@ -15,14 +15,10 @@ class QuizAnswersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    for (QuizQuestion quest in quizQuestions) {
-      print(
-          "q : ${quest.questionText} + A1 id : ${quest.answerOneId} -- A1 correct : ${quest.answerOneIsCorrect} + A1 id : ${quest.answerTwoId} -- A1 correct : ${quest.answerTwoIsCorrect}+ A1 id : ${quest.answerThreeId} -- A1 correct : ${quest.answerThreeIsCorrect} + userAnswer : ${quest.userSelectedAnswerId}");
-    }
 
     return Scaffold(
       backgroundColor: mainPageColor,
-      appBar: quizAnswersAppBar(),
+      appBar: quizAnswersAppBar(context),
       body: SingleChildScrollView(
         child: Column(
           children: [

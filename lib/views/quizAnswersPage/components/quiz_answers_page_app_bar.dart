@@ -4,17 +4,20 @@ import '../../commonComponents/core/utils/constants.dart';
 import '../../commonComponents/core/utils/size_config.dart';
 import '../../commonComponents/core/utils/styles.dart';
 import '../../commonComponents/galaxy_text.dart';
-AppBar quizAnswersAppBar() {
-  return AppBar(toolbarHeight: 55,
+AppBar quizAnswersAppBar(BuildContext context) {
+  return AppBar(
+    centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 255, 250, 237),
+        surfaceTintColor: Colors.transparent,
+        elevation: 10,
+    toolbarHeight: 55,
     title: const Center(child: Row(
       children: [
         SizedBox(width: 73,),
         GalaxyText(fontSize: 32, text: 'اجاباتك'),
       ],
     )),
-    backgroundColor: mainPageColor,
     leadingWidth: 50,
-    elevation: 0,
     forceMaterialTransparency:true ,
     actions:  [
       Column(
@@ -51,12 +54,15 @@ AppBar quizAnswersAppBar() {
       const SizedBox(width: 20),
     ],
     leading:Center(
-      child: InkWell(onTap: (){},
+      child: InkWell(onTap: (){Navigator.maybePop(context);},
           child: SvgPicture.asset('assets/pics/arrow_back.svg',fit: BoxFit.scaleDown,)
       ),
     ) ,
 
-    bottom: PreferredSize(preferredSize:  Size.fromHeight(SizeConfig.screenHeight!*0.04),
-        child: SvgPicture.asset('assets/pics/appBar.svg')),
+    bottom:  PreferredSize(
+          preferredSize: const Size.fromHeight(25.0),
+          child:  Image.asset('assets/pics/app_bar_line.png',fit: BoxFit.fill,width: double.infinity,),
+    ),
+        
   );
 }

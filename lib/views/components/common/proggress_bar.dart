@@ -15,7 +15,7 @@ class progres_bar extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16),
         child: Container(
-          width: 600,
+          width: 360,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             border: Border.all(color: Colors.black, width: 2),
@@ -39,7 +39,7 @@ class progres_bar extends StatelessWidget {
                   ),
                   child: LinearPercentIndicator(
                     padding: EdgeInsets.zero,
-                    width: 328, // Width of the progress bar
+                    width: 356, // Width of the progress bar
                     lineHeight: 40,
                     percent: percentage / 100, // Use the percentage value
                     center: null, // Remove the center widget

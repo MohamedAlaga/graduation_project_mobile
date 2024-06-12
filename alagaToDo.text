@@ -1,10 +1,13 @@
-handle delete user on page 25 
-change api uri on controllers to use domainName variable
-button "التالي" in video page should go to the article
-better logo for splash screen
-fix quiz flow
-
-handle token in 2 files in controllers :-
-1- calculate progress bar.
-2-corus info.
-replace the string token to the token that come from login
+//handle delete user on page 25 
+//change api uri on controllers to use domainName variable
+//button "التالي" in video page should go to the article
+//fix quiz flow
+//better logo for splash screen
+//better logo in main screen
+//make sure of app page flow 
+//remove google and facebook auth
+//better discord server
+//fix video number placment
+change discord video link
+//fix stars in computer page
+//fix herozintal line in quiz answer page

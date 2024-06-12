@@ -58,21 +58,25 @@ class computer extends StatelessWidget {
                                               .toString())),
                                 );
                               } else if (pass == 0) {
-                                       AwesomeDialog(
-                                          context: context,
-                                          dialogType: DialogType.error,
-                                          animType: AnimType.topSlide,
-                                          title: "بيانات المستخدم غير صحيحة",
-                                          btnOkText: "حسنا",
-                                          btnOkOnPress: () {}).show();
-                              } else {AwesomeDialog(
-                                            context: context,
-                                            dialogType: DialogType.error,
-                                            animType: AnimType.topSlide,
-                                            title: "حدث خطأ ما، يرجى المحاولة مرة أخرى",
-                                            btnOkText: "حسنا",
-                                            btnOkOnPress: (){}
-                                          ).show();}
+                                AwesomeDialog(
+                                        context: context,
+                                        dialogType: DialogType.error,
+                                        animType: AnimType.topSlide,
+                                        title: "بيانات المستخدم غير صحيحة",
+                                        btnOkText: "حسنا",
+                                        btnOkOnPress: () {})
+                                    .show();
+                              } else {
+                                AwesomeDialog(
+                                        context: context,
+                                        dialogType: DialogType.error,
+                                        animType: AnimType.topSlide,
+                                        title:
+                                            "حدث خطأ ما، يرجى المحاولة مرة أخرى",
+                                        btnOkText: "حسنا",
+                                        btnOkOnPress: () {})
+                                    .show();
+                              }
                             },
                           ),
                           controler: control,
@@ -90,13 +94,10 @@ class computer extends StatelessWidget {
                 fcolor: Color.fromARGB(255, 234, 159, 63)),
           ],
         ),
-        title: const stork_text(
-            w_sized: FontWeight.w700,
-            Y_offdet: 6,
-            Stext: 'عبقر',
-            s_ctext: Color.fromARGB(255, 255, 210, 0),
-            sfamily: 'AlaTypoo',
-            sT_Sized: 36),
+        title: Image.asset(
+          "assets/pics/FullLogo2.png",
+          height: 130,
+        ),
         actions: const [
           Column(
             children: [
@@ -165,7 +166,7 @@ class computer extends StatelessWidget {
                   ),
                   const C_Text(
                       w_font: FontWeight.w600,
-                      text: '  مراجعة ممتعة عن تطور التكنولوجيا ⭐',
+                      text: '         مراجعة ممتعة عن تطور التكنولوجيا ⭐',
                       ffamily: 'OMNES-ARABIC',
                       fsized: 20,
                       fcolor: Colors.black),
@@ -174,7 +175,7 @@ class computer extends StatelessWidget {
                   ),
                   const C_Text(
                       w_font: FontWeight.w600,
-                      text: ' شرح مكونات الكمبيوتر ونظام التشغيل ⭐',
+                      text: '    شرح مكونات الكمبيوتر ونظام التشغيل ⭐',
                       ffamily: 'OMNES-ARABIC',
                       fsized: 20,
                       fcolor: Colors.black),
@@ -192,7 +193,7 @@ class computer extends StatelessWidget {
                   ),
                   const C_Text(
                       w_font: FontWeight.w600,
-                      text: ' شرح الانترنت والشبكات والفرق بينهم ⭐',
+                      text: '      شرح الانترنت والشبكات والفرق بينهم ⭐',
                       ffamily: 'OMNES-ARABIC',
                       fsized: 20,
                       fcolor: Colors.black),
@@ -201,7 +202,7 @@ class computer extends StatelessWidget {
                   ),
                   const C_Text(
                       w_font: FontWeight.w600,
-                      text: ' خطر الانترنت وكيفة حماية نفسك منه ⭐',
+                      text: '      خطر الانترنت وكيفة حماية نفسك منه ⭐',
                       ffamily: 'OMNES-ARABIC',
                       fsized: 20,
                       fcolor: Colors.black),
@@ -210,7 +211,7 @@ class computer extends StatelessWidget {
                   ),
                   const C_Text(
                       w_font: FontWeight.w600,
-                      text: ' كيف تبحث عن حلول فعالة للمشكلات ⭐',
+                      text: '     كيف تبحث عن حلول فعالة للمشكلات ⭐',
                       ffamily: 'OMNES-ARABIC',
                       fsized: 20,
                       fcolor: Colors.black),
@@ -229,21 +230,23 @@ class computer extends StatelessWidget {
                   button(
                     bText: ' التالي   ',
                     bcolor: const Color.fromRGBO(31, 204, 123, 1),
-                    b_fun: () async{
+                    b_fun: () async {
                       var inroll = await inrollToCourse();
-                      if(inroll == 1){
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => V_List()),
-                      );} else {
+                      if (inroll == 1) {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(builder: (context) => V_List()),
+                            (route) => false);
+                      } else {
                         AwesomeDialog(
-                            context: context,
-                            dialogType: DialogType.error,
-                            animType: AnimType.topSlide,
-                            title: "حدث خطأ ما، يرجى المحاولة مرة أخرى",
-                            btnOkText: "حسنا",
-                            btnOkOnPress: (){}
-                        ).show();}
+                                context: context,
+                                dialogType: DialogType.error,
+                                animType: AnimType.topSlide,
+                                title: "حدث خطأ ما، يرجى المحاولة مرة أخرى",
+                                btnOkText: "حسنا",
+                                btnOkOnPress: () {})
+                            .show();
+                      }
                     },
                     bF_Text: 32,
                     bHieght: 48,

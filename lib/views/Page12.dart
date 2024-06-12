@@ -33,8 +33,7 @@ class V_List extends StatelessWidget {
       appBar: AppBar(
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(25.0),
-          child: S_Image(),
-        ),
+          child: S_Image()),
         leading: Column(
           children: [
             const SizedBox(height: 7),
@@ -147,7 +146,7 @@ class V_List extends StatelessWidget {
                     ),
                     child: ProgressScreen(),
                   ),
-                ),
+                ),const SliverToBoxAdapter(child: SizedBox(height: 20,),),
                 VideoListScreen(onLoaded: () {
                   videoListLoaded.complete();
                 }),
