@@ -84,17 +84,17 @@ class _Page18State extends State<Page18> {
                 title: "${widget.grade.toStringAsFixed(1)}%",
                 fsize: 84,
               ),
-              MainButton(
+              (widget.grade>50) ? MainButton(
                 title: "شهادة المستوى",
                 bcolor: Color(0xFF00DCEA),
                 onpress: () async {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Page27(name: userFullName),
+                        builder: (context) => Page27(name:getUserCertName()),
                       ));
                 },
-              ),
+              ) :Container(),
               const SizedBox(height: 12),
               MainButton(
                 title: "مراجعة اجاباتك",

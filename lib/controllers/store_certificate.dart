@@ -12,6 +12,9 @@ getUserCertName() async {
       Uri.parse(
         '$domainName/api/certificate',
       ),
+      body: jsonEncode(<String, String>{
+        'name': userFullName,
+      }),
       headers: <String, String>{
         'User-Agent': 'mobileApp',
         'Accept': '*/*',
@@ -33,5 +36,4 @@ getUserCertName() async {
   } catch (e) {
     return "request failed";
   }
-
 }

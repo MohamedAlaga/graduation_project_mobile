@@ -113,7 +113,7 @@ class community extends StatelessWidget {
               ),
               const C_Text(
                 w_font: FontWeight.w600,
-                text: '1- اتبع الخطوات المشروحة في الفيديو🧐 ',
+                text: '🧐 اتبع الخطوات المشروحة في الفيديو',
                 ffamily: 'OMNES-ARABIC',
                 fsized: 20,
                 fcolor: Colors.black,
@@ -123,7 +123,7 @@ class community extends StatelessWidget {
               ),
               const C_Text(
                 w_font: FontWeight.w600,
-                text: '2- التزم بأداب واخلاقيات المجتمع📃',
+                text: '📃 التزم بأداب واخلاقيات المجتمع',
                 ffamily: 'OMNES-ARABIC',
                 fsized: 20,
                 fcolor: Colors.black,
@@ -133,7 +133,7 @@ class community extends StatelessWidget {
               ),
               const C_Text(
                 w_font: FontWeight.w600,
-                text: '3- شارك رأيك بحرية و تفاعل باستمرار 💭',
+                text: '💭 شارك رأيك بحرية و تفاعل باستمرار ',
                 ffamily: 'OMNES-ARABIC',
                 fsized: 20,
                 fcolor: Colors.black,
@@ -143,7 +143,7 @@ class community extends StatelessWidget {
               ),
               const C_Text(
                 w_font: FontWeight.w600,
-                text: '4- كون صداقات وتواصل بدون خوف😊',
+                text: '😊 كون صداقات وتواصل بدون خوف',
                 ffamily: 'OMNES-ARABIC',
                 fsized: 20,
                 fcolor: Colors.black,
