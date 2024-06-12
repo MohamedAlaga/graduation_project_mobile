@@ -31,6 +31,7 @@ class V_List extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 250, 237),
       appBar: AppBar(
+        leadingWidth: 80,
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(25.0),
           child: S_Image()),
@@ -112,20 +113,23 @@ class V_List extends StatelessWidget {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => community()));
             },
-            child: const Column(
-              children: [
-                SizedBox(height: 7),
-                SVG_button(svg_Logo: 'Frame 43.svg', svg_widget: community()),
-                SizedBox(
-                  height: 1,
-                ),
-                C_Text(
-                    w_font: FontWeight.w700,
-                    text: 'المجتمع',
-                    ffamily: 'OMNES-ARABIC',
-                    fsized: 11,
-                    fcolor: Color.fromARGB(255, 234, 159, 63)),
-              ],
+            child: const Padding(
+              padding: EdgeInsets.only(right: 12),
+              child: Column(
+                children: [
+                  SizedBox(height: 9),
+                  SVG_button(svg_Logo: 'Frame 43.svg', svg_widget: community()),
+                  SizedBox(
+                    height: 1,
+                  ),
+                  C_Text(
+                      w_font: FontWeight.w700,
+                      text: 'المجتمع',
+                      ffamily: 'OMNES-ARABIC',
+                      fsized: 11,
+                      fcolor: Color.fromARGB(255, 234, 159, 63)),
+                ],
+              ),
             ),
           )
         ],

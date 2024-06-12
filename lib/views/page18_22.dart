@@ -75,14 +75,14 @@ class _Page18State extends State<Page18> {
         child: Center(
           child: Column(
             children: [
-              const SizedBox(height: 32),
+              const SizedBox(height: 16),
               FaceWidget(facePath: paths.keys.elementAt(index)),
-              const SizedBox(height: 20),
-              ParagrahpText(txt: paths.values.elementAt(index), size: 36),
+              const SizedBox(height: 10),
+              ParagrahpText(txt: paths.values.elementAt(index), size: 28),
               const SizedBox(height: 5),
               HeadlineText(
                 title: "${widget.grade.toStringAsFixed(1)}%",
-                fsize: 96,
+                fsize: 84,
               ),
               MainButton(
                 title: "شهادة المستوى",
@@ -95,7 +95,7 @@ class _Page18State extends State<Page18> {
                       ));
                 },
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 12),
               MainButton(
                 title: "مراجعة اجاباتك",
                 onpress: () {
@@ -108,7 +108,7 @@ class _Page18State extends State<Page18> {
                 },
                 padd: 25,
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 12),
               MainButton(
                   title: "إعادة الاختبار",
                   bcolor: Color(0xFFFF5F84),
@@ -123,7 +123,7 @@ class _Page18State extends State<Page18> {
                         ));
                   },
                   padd: 35),
-              const SizedBox(height: 24),
+              const SizedBox(height: 12),
             ],
           ),
         ),

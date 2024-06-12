@@ -1,4 +1,3 @@
-import 'package:aabkr/views/Page12.dart';
 import 'package:aabkr/views/page3/page3_screen.dart';
 import 'package:flutter/material.dart';
 

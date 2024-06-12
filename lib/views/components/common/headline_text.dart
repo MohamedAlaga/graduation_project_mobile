@@ -13,6 +13,7 @@ class HeadlineText extends StatelessWidget {
           style: TextStyle(
               fontSize: fsize,
               fontFamily: "AA-GALAXY",
+              fontWeight: FontWeight.bold,
               shadows: const[
                 Shadow(
                   color: Colors.black,
@@ -27,6 +28,7 @@ class HeadlineText extends StatelessWidget {
         title,
         style:  TextStyle(fontSize: fsize,
               fontFamily: "AA-GALAXY",
+              fontWeight: FontWeight.bold,
               color: Colors.white),
       )
     ]);

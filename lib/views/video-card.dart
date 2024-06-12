@@ -129,7 +129,8 @@ class videoCard extends StatelessWidget {
                                   Text(video.title,
                                       style: TextStyle(
                                           fontWeight: FontWeight.w600,
-                                          fontSize: 15,
+                                          fontFamily: "OMNES-ARABIC",
+                                          fontSize: 20,
                                           color: isEnabled
                                               ? Colors.white
                                               : const Color.fromARGB(
@@ -166,6 +167,7 @@ class videoCard extends StatelessWidget {
                             child: Text('${(vindex + 1).toString() }',
                                 style: TextStyle(
                                     fontWeight: FontWeight.w600,
+                                    fontFamily: "OMNES-ARABIC",
                                     fontSize: 36,
                                     color: Colors.black,),textAlign: TextAlign.center,),
                           ),
